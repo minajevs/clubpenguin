@@ -18,7 +18,7 @@ const Slide = styled('div')(({ theme }) => ({
 
 const ChallengeCard = styled(Card)(({ theme }) => ({
   boxShadow: 'none',
-  border: '1px solid #e8e8e8',
+  border: 'none',
   backgroundColor: '#ffffff'
 }))
 

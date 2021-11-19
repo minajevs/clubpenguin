@@ -2,8 +2,7 @@ import { Box, Container, Grid, Typography } from "@mui/material"
 import AppWaterUsage from "../components/app/AppWaterUsage"
 import AppHotCold from "../components/app/AppHotCold"
 import AppChallenges from "../components/app/AppChallenges"
-
-import AppWeeklySales from "../components/_dashboard/app/AppWeeklySales.js"
+import AppAchievements from "../components/app/AppAchievements"
 
 export const App = () => {
   return <>
@@ -36,7 +35,7 @@ export const App = () => {
       </Box>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6} md={3}>
-          <AppWeeklySales />
+          <AppAchievements />
         </Grid>
       </Grid>
     </Container>
