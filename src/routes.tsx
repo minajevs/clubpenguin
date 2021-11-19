@@ -4,6 +4,7 @@ import DashboardLayout from "./layouts/dashboard"
 import LogoOnlyLayout from "./layouts/LogoOnlyLayout"
 //
 import App from "./pages/App"
+import Api from "./pages/Api"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import DashboardApp from "./pages/DashboardApp"
@@ -19,6 +20,10 @@ export default function Router() {
     {
       path: "/app",
       element: <App />,
+    },
+    {
+      path: "/api",
+      element: <Api />
     },
     {
       path: "/dashboard",
