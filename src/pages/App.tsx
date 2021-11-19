@@ -2,11 +2,9 @@ import { Box, Container, Grid, Typography } from "@mui/material"
 import AppWaterUsage from "../components/app/AppWaterUsage"
 import AppHotCold from "../components/app/AppHotCold"
 import AppChallenges from "../components/app/AppChallenges"
-
-import AppWeeklySales from "../components/_dashboard/app/AppWeeklySales.js"
+import AppAchievements from "../components/app/AppAchievements"
 //@ts-ignore
 import SpotifyPlayer from 'react-spotify-player';
-
 
 const size = {
   width: '100%',
@@ -46,7 +44,7 @@ export const App = () => {
       </Box>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6} md={3}>
-          <AppWeeklySales />
+          <AppAchievements />
         </Grid>
       </Grid>
     </Container>
@@ -56,12 +54,12 @@ export const App = () => {
       </Box>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6} md={3}>
-        <SpotifyPlayer
-          uri="spotify:album:64PWtKr0oA7mmKQC3SMDde"
-          size={size}
-          view={view}
-          theme={theme}
-        />
+          <SpotifyPlayer
+            uri="spotify:album:64PWtKr0oA7mmKQC3SMDde"
+            size={size}
+            view={view}
+            theme={theme}
+          />
         </Grid>
       </Grid>
     </Container>
