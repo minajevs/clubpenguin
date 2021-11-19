@@ -14,8 +14,6 @@ const AchievementCard = styled(Card)(({ theme }) => ({
 }))
 
 const IconWrapperStyle = styled('div')(({ theme }) => ({
-  position: 'absolute',
-  margin: 'auto',
   display: 'flex',
   borderRadius: '50%',
   alignItems: 'center',
@@ -28,7 +26,24 @@ const IconWrapperStyle = styled('div')(({ theme }) => ({
   backgroundImage: `linear-gradient(135deg, ${alpha(theme.palette.primary.dark, 0)} 0%, ${alpha(
     theme.palette.primary.dark,
     0.24
-  )} 100%)`
+  )} 100%)`,
+  position: 'relative'
+}))
+
+const IconColor = styled(IconWrapperStyle)(() => ({
+  position: 'absolute',
+  left: 0,
+  right: 0,
+  bottom: 0,
+  margin: 0
+}))
+
+const IconColorWrapper = styled('div')(() => ({
+  position: 'absolute',
+  left: 0,
+  bottom: 0,
+  right: 0,
+  overflow: 'hidden'
 }))
 
 const settings: Settings = {
@@ -39,19 +54,25 @@ const settings: Settings = {
   slidesToScroll: 1
 }
 
+// const AchievementIcon = () => (
+
+// )
+
 export const AppAchievements = () => {
   return <Box sx={{ pb: 6 }} dir="ltr">
     <Slider {...settings}>
       <Slide>
         <AchievementCard>
-          <div style={{ position: 'relative', width: '100px', height: '100px' }}>
+          <Box display='flex' justifyContent='center'>
             <IconWrapperStyle>
-              <Icon icon={tree} width={64} height={64} />
+              <Icon icon={tree} width={64} height={64} style={{ filter: 'grayscale(1)', opacity: 0.8 }} />
+              <IconColorWrapper style={{ height: '69%' }}>
+                <IconColor>
+                  <Icon icon={tree} width={64} height={64} />
+                </IconColor>
+              </IconColorWrapper>
             </IconWrapperStyle>
-            <IconWrapperStyle>
-              <Icon icon={tree} width={64} height={64} />
-            </IconWrapperStyle>
-          </div>
+          </Box>
         </AchievementCard>
       </Slide>
       <Slide>
