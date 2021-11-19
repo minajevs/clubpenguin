@@ -3,6 +3,7 @@ import { Navigate, useRoutes } from "react-router-dom"
 import DashboardLayout from "./layouts/dashboard"
 import LogoOnlyLayout from "./layouts/LogoOnlyLayout"
 //
+import App from "./pages/App"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import DashboardApp from "./pages/DashboardApp"
@@ -15,6 +16,10 @@ import NotFound from "./pages/Page404"
 
 export default function Router() {
   return useRoutes([
+    {
+      path: "/app",
+      element: <App />,
+    },
     {
       path: "/dashboard",
       element: <DashboardLayout />,
