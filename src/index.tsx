@@ -2,10 +2,10 @@ import React from 'react';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'simplebar/src/simplebar.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 // scroll bar
-import 'simplebar/src/simplebar.css';
-
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
