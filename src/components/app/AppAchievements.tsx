@@ -35,7 +35,7 @@ export const AppAchievements = () => {
         <Slide>
           <Card>
             <Box sx={{ p: 1 }} display='flex' alignItems='center' flexDirection='column'>
-              <ProgressIcon icon={car} progress={66} iconMargin='0 0 20px 0' count={1337} />
+              <ProgressIcon icon={car} progress={66} iconMargin='0 0 20px 0' count={102} />
               <Typography variant="body1" sx={{ opacity: 0.72 }}>
                 3.63/5.5 kWh of Citroën Ami charged
               </Typography>

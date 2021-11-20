@@ -13,6 +13,7 @@ import User from "./pages/User"
 import NotFound from "./pages/Page404"
 import CompletedChallenges from "./pages/CompletedChallenges"
 import ShowerChallenge from "./pages/ShowerChallenge"
+import { Achievements } from "./pages/Achiements"
 
 // ----------------------------------------------------------------------
 
@@ -29,6 +30,10 @@ export default function Router() {
     {
       path: "/showerchallenge",
       element: <ShowerChallenge />,
+    },
+    {
+      path: "/achievements/:type",
+      element: <Achievements />,
     },
     {
       path: "/dashboard",
