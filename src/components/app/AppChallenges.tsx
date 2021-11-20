@@ -69,7 +69,7 @@ export const AppChallenges = () => {
               <CardHeader title="🚿 I need a shower" subheader="Take a shower in three songs" />
               <Box sx={{ p: 3, pb: 3 }} dir="ltr">
                 <SpotifyPlayer
-                  uri="spotify:album:4htoDDUSJXQzMbqTzFVVux"
+                  uri="spotify:album:1pg8XypcyejiasjfBgGEgL"
                   size={size}
                   view={view}
                   theme={theme}

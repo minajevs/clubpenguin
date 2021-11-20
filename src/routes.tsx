@@ -17,6 +17,7 @@ export default function Router() {
             uri="spotify:album:1pg8XypcyejiasjfBgGEgL"
             title="🚿 I need a shower"
             subtitle="Take a shower in three songs"
+            height={175}
           />
         )}
       />
@@ -27,6 +28,7 @@ export default function Router() {
             uri="spotify:album:64PWtKr0oA7mmKQC3SMDde"
             title="🧼 Don't drop it!"
             subtitle="Soap your hands for 20 seconds"
+            height={80}
           />
         )}
       />
@@ -34,9 +36,10 @@ export default function Router() {
         path="/brushchallenge"
         render={() => (
           <Challenge
-            uri="spotify:album:64PWtKr0oA7mmKQC3SMDde"
+            uri="spotify:track:3g7TPO02MaNESuHC4jer3R"
             title="🦷🪥 Brush brush brush"
             subtitle="Brush your teeth in one song"
+            height={80}
           />
         )}
       />

@@ -9,7 +9,6 @@ import './clock.scss'
 
 const size = {
   width: '100%',
-  height: 175,
 };
 const view = "list"; // or 'list'
 const theme = "white"; // or 'black'
@@ -33,9 +32,10 @@ type ChallengeProps = {
   uri: string
   title: string
   subtitle: string
+  height: number
 }
 
-export const Challenge: FC<ChallengeProps> = ({ uri, title, subtitle }) => {
+export const Challenge: FC<ChallengeProps> = ({ uri, title, subtitle, height }) => {
   const [state, setState] = useState<State>({
     time: 0,
     date: new Date(1995, 11, 17, 0, 0, 0),
@@ -100,7 +100,7 @@ export const Challenge: FC<ChallengeProps> = ({ uri, title, subtitle }) => {
                 <Grid item>
                   <SpotifyPlayer
                     uri={uri}
-                    size={size}
+                    size={{...size, height}}
                     view={view}
                     theme={theme}
                   />
