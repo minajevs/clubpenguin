@@ -77,10 +77,10 @@ export const Achievements = () => {
             />
             <CardContent>
               <Grid container spacing={1}>
-                <Grid item xs={3}>
+                <Grid item xs={4} sm={3}>
                   <ProgressIcon progress={42} showProgress={false} icon={icons[_type]} count={0} size={1.5} iconMargin={margins[_type]} />
                 </Grid>
-                {new Array(counts[_type]).fill(void (0)).map((_, i) => <Grid item xs={3}>
+                {new Array(counts[_type]).fill(void (0)).map((_, i) => <Grid item xs={4} sm={3}>
                   <ProgressIcon progress={100} icon={icons[_type]} count={0} size={1.5} iconMargin={margins[_type]} />
                 </Grid>)}
               </Grid>
