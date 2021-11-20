@@ -12,6 +12,7 @@ import Blog from "./pages/Blog"
 import User from "./pages/User"
 import NotFound from "./pages/Page404"
 import CompletedChallenges from "./pages/CompletedChallenges"
+import ShowerChallenge from "./pages/ShowerChallenge"
 
 // ----------------------------------------------------------------------
 
@@ -24,6 +25,10 @@ export default function Router() {
     {
       path: "/challenges",
       element: <CompletedChallenges />,
+    },
+    {
+      path: "/showerchallenge",
+      element: <ShowerChallenge />,
     },
     {
       path: "/dashboard",
@@ -43,7 +48,7 @@ export default function Router() {
         { path: "login", element: <Login /> },
         { path: "register", element: <Register /> },
         { path: "404", element: <NotFound /> },
-        { path: "/", element: <Navigate to="/dashboard" /> },
+        { path: "/", element: <Navigate to="/app" /> },
         { path: "*", element: <Navigate to="/404" /> },
       ],
     },
