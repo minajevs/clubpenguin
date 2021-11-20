@@ -8,7 +8,7 @@ import 'react-clock/dist/Clock.css'
 
 // scroll bar
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import {
   QueryClient,
@@ -23,9 +23,9 @@ ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
-        <BrowserRouter basename={process.env.NODE_ENV === 'production' ? '/clubpenguin' : ''}>
+        <HashRouter basename={process.env.NODE_ENV === 'production' ? '/clubpenguin' : ''}>
           <App />
-        </BrowserRouter>
+        </HashRouter >
       </HelmetProvider>
     </QueryClientProvider>
   </React.StrictMode>,
