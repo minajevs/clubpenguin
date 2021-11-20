@@ -32,7 +32,8 @@ export const AppChallenges = () => {
       <Slider {...settings}>
         <Slide>
           <Card>
-            <CardActionArea href='/soapchallenge'>
+            {/* @ts-ignore */}
+            <CardActionArea to='/soapchallenge' LinkComponent={RouterLink}>
               <CardHeader title="🧼 Don't drop it!" subheader="Soap your hands for 20 seconds" />
               <Box sx={{ p: 3, pb: 3 }} dir="ltr">
                 <SpotifyPlayer
@@ -47,7 +48,8 @@ export const AppChallenges = () => {
         </Slide>
         <Slide>
           <Card>
-            <CardActionArea href='/brushchallenge'>
+            {/* @ts-ignore */}
+            <CardActionArea to='/brushchallenge' LinkComponent={RouterLink}>
               <CardHeader title="🦷🪥 Brush brush brush" subheader="Brush your teeth in one song" />
               <Box sx={{ p: 3, pb: 3 }} dir="ltr">
                 <SpotifyPlayer
@@ -62,7 +64,8 @@ export const AppChallenges = () => {
         </Slide>
         <Slide>
           <Card>
-            <CardActionArea href='/showerchallenge'>
+            {/* @ts-ignore */}
+            <CardActionArea to='/showerchallenge' LinkComponent={RouterLink}>
               <CardHeader title="🚿 I need a shower" subheader="Take a shower in three songs" />
               <Box sx={{ p: 3, pb: 3 }} dir="ltr">
                 <SpotifyPlayer

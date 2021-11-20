@@ -1,13 +1,14 @@
 
 import { alpha, Card, CardContent, CardHeader, Container, Grid, styled, Typography } from "@mui/material"
-import { useParams } from "react-router-dom"
+import { RouteComponentProps } from "react-router-dom"
 import tree from '@iconify/icons-emojione/deciduous-tree'
 import car from '@iconify/icons-emojione/oncoming-automobile'
 import book from '@iconify/icons-emojione/books'
-import { Icon, IconifyIcon } from "@iconify/react"
+import { IconifyIcon } from "@iconify/react"
 import { ProgressIcon } from "../components/app/ProgressIcon"
 import { CAR_FACTS, TIME_FACTS, TREE_FACTS } from "../components/app/AppAchievements"
 import sample from 'lodash/sample'
+import { FC } from 'react'
 
 type Types = 'tree' | 'car' | 'book'
 
@@ -55,9 +56,7 @@ const facts: Record<Types, string> = {
   'book': '23',
 }
 
-export const Achievements = () => {
-  const { type } = useParams()
-
+export const Achievements: FC<RouteComponentProps<{ type: Types }>> = ({ match: { params: { type } } }) => {
   const facts = type === 'tree' ? TREE_FACTS : type === 'car' ? CAR_FACTS : TIME_FACTS
 
   if (type === undefined) return <>Redirect</>

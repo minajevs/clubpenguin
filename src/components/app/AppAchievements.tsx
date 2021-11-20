@@ -5,6 +5,7 @@ import tree from '@iconify/icons-emojione/deciduous-tree'
 import car from '@iconify/icons-emojione/oncoming-automobile'
 import book from '@iconify/icons-emojione/books'
 import sample from 'lodash/sample'
+import { Link as RouterLink } from 'react-router-dom'
 
 const Slide = styled('div')(({ theme }) => ({
   padding: theme.spacing(3, 3, 4, 3),
@@ -43,7 +44,8 @@ export const AppAchievements = () => {
       <Slider {...settings}>
         <Slide>
           <Card>
-            <CardActionArea href="/achievements/tree">
+            {/* @ts-ignore */}
+            <CardActionArea to="/achievements/tree" LinkComponent={RouterLink}>
               <Box sx={{ p: 1 }} display='flex' alignItems='center' flexDirection='column'>
                 <ProgressIcon icon={tree} progress={50} count={11} />
                 <Typography variant="body1" gutterBottom>
@@ -58,7 +60,8 @@ export const AppAchievements = () => {
         </Slide>
         <Slide>
           <Card>
-            <CardActionArea href="/achievements/car">
+            {/* @ts-ignore */}
+            <CardActionArea to="/achievements/car" LinkComponent={RouterLink}>
               <Box sx={{ p: 1 }} display='flex' alignItems='center' flexDirection='column'>
                 <ProgressIcon icon={car} progress={66} iconMargin='0 0 20px 0' count={1337} />
                 <Typography variant="body1" gutterBottom>
@@ -73,7 +76,8 @@ export const AppAchievements = () => {
         </Slide>
         <Slide>
           <Card>
-            <CardActionArea href="/achievements/book">
+            {/* @ts-ignore */}
+            <CardActionArea to="/achievements/book" LinkComponent={RouterLink}>
               <Box sx={{ p: 1 }} display='flex' alignItems='center' flexDirection='column'>
                 <ProgressIcon icon={book} progress={70} count={23} />
                 <Typography variant="body1" gutterBottom>
