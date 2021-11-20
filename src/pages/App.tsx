@@ -57,7 +57,7 @@ export const App = () => {
       </Grid>
     </Container>
     <Container maxWidth="xl">
-      <Box sx={{ pb: 5 }}>
+      <Box sx={{ pt: 3, pb: 1 }}>
         <Typography variant="h4">Achievements</Typography>
       </Box>
       <Grid container spacing={3}>

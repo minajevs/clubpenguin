@@ -1,6 +1,5 @@
-import { alpha, Box, styled, Typography } from "@mui/material"
-import { Icon } from '@iconify/react'
-import tree from '@iconify/icons-emojione/deciduous-tree'
+import { alpha, Badge, BadgeProps, Box, styled, Typography } from "@mui/material"
+import { Icon, IconifyIcon } from '@iconify/react'
 
 const IconWrapperStyle = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -33,24 +32,40 @@ const IconColorWrapper = styled('div')(() => ({
   overflow: 'hidden'
 }))
 
+const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    height: '40px',
+    minWidth: '40px',
+    fontSize: 20,
+    borderRadius: '20px'
+  },
+}))
+
 type Props = {
   progress: number
+  count: number
+  icon: IconifyIcon
+  iconMargin?: string
 }
 
-export const ProgressIcon = ({ progress }: Props) => {
+
+export const ProgressIcon = ({ progress, icon, count, iconMargin = 'auto' }: Props) => {
   return <>
-    <Typography variant="h5" sx={{ opacity: 0.90, my: 2 }}>
+    <Box display='flex' justifyContent='center' sx={{ mt: 2 }}>
+      <StyledBadge badgeContent={count} color="primary" overlap="circular">
+        <IconWrapperStyle>
+          <Icon icon={icon} width={90} height={90} style={{ filter: 'grayscale(1)', opacity: 0.8, margin: iconMargin }} />
+          <IconColorWrapper style={{ height: `${progress}%` }}>
+            <IconColor>
+              <Icon icon={icon} width={90} height={90} style={{ margin: iconMargin }} />
+            </IconColor>
+          </IconColorWrapper>
+        </IconWrapperStyle>
+      </StyledBadge>
+    </Box>
+
+    <Typography variant="h5" sx={{ opacity: 0.90, mb: 2 }}>
       {progress}%
     </Typography>
-    <Box display='flex' justifyContent='center' sx={{ mb: 2 }}>
-      <IconWrapperStyle>
-        <Icon icon={tree} width={64} height={64} style={{ filter: 'grayscale(1)', opacity: 0.8 }} />
-        <IconColorWrapper style={{ height: `${progress}%` }}>
-          <IconColor>
-            <Icon icon={tree} width={64} height={64} />
-          </IconColor>
-        </IconColorWrapper>
-      </IconWrapperStyle>
-    </Box>
   </>
 }
