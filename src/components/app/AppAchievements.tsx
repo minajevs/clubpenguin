@@ -1,4 +1,4 @@
-import { Box, Card, CardHeader, styled, Button, alpha, Typography, Grid } from "@mui/material";
+import { Box, Card, styled, Button, alpha, Typography, Grid } from "@mui/material";
 import Slider, { Settings } from "react-slick"
 import { ProgressIcon } from "./ProgressIcon";
 import tree from '@iconify/icons-emojione/deciduous-tree'

@@ -10,6 +10,9 @@ const options = {
     toolbar: {
       show: false
     },
+    sparkline: {
+      enabled: true
+    }
   },
   dataLabels: {
     enabled: false

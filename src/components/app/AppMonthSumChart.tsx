@@ -1,7 +1,7 @@
 import ReactApexChart from 'react-apexcharts';
 import { useQuery } from 'react-query'
 import { Card } from '@mui/material';
-import { getDaysInMonth, getMonth, secondsToMinutes } from 'date-fns';
+import { getDaysInMonth, getMonth } from 'date-fns';
 
 const month = getMonth(new Date())
 
@@ -12,6 +12,9 @@ const options = {
     toolbar: {
       show: false
     },
+    sparkline: {
+      enabled: true
+    }
   },
   dataLabels: {
     enabled: false
@@ -50,23 +53,12 @@ const options = {
     x: {
       format: 'dd/MM/yy'
     },
-    y: [
-      {
-        formatter: ((val: number) => `${val} l`)
-      },
-      {
-        formatter: ((val: number) => `${secondsToMinutes(val)} minutes`)
-      },
-      {
-        formatter: ((val: number) => `${val} kWh`)
-      }
-    ]
   }
 }
 
 function AppMonthSumChart() {
   const { data } = useQuery('month', async () => {
-    const response = await fetch('http://localhost:3001/apartments/11/month')
+    const response = await fetch('http://localhost:3001/apartments/0/month')
 
     const json = await response.json()
 
