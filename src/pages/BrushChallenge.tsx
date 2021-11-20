@@ -81,7 +81,7 @@ export const BrushChallenge = () => {
                                 <Grid item xs={12} />
                                 <Grid item>
                                     <Box sx={{ pt: 2 }}>
-                                        <Typography variant="h4">
+                                        <Typography variant="h4" fontFamily="Quantico">
                                             {("0" + Math.floor((time / 60000) % 60)).slice(-2)}:
                                             {("0" + Math.floor((time / 1000) % 60)).slice(-2)}:
                                             {("0" + (time / 10) % 1000).slice(-2)}
