@@ -1,4 +1,4 @@
-import { Box, Card, styled, Button, alpha, Typography, Grid } from "@mui/material";
+import { Box, Card, CardActionArea, styled, Button, alpha, Typography, Grid } from "@mui/material";
 import Slider, { Settings } from "react-slick"
 import { ProgressIcon } from "./ProgressIcon";
 import tree from '@iconify/icons-emojione/deciduous-tree'
@@ -43,41 +43,47 @@ export const AppAchievements = () => {
       <Slider {...settings}>
         <Slide>
           <Card>
-            <Box sx={{ p: 1 }} display='flex' alignItems='center' flexDirection='column'>
-              <ProgressIcon icon={tree} progress={50} count={11} />
-              <Typography variant="body1" gutterBottom>
-                20/40 liters of water saved to grow a tree
-              </Typography>
-              <Typography variant="body2" sx={{ textAlign: 'center', opacity: 0.72 }}>
-                🤓 <strong>Did you know?</strong> {sample(TREE_FACTS)}
-              </Typography>
-            </Box>
+            <CardActionArea href="/achievements/tree">
+              <Box sx={{ p: 1 }} display='flex' alignItems='center' flexDirection='column'>
+                <ProgressIcon icon={tree} progress={50} count={11} />
+                <Typography variant="body1" gutterBottom>
+                  20/40 liters of water saved to grow a tree
+                </Typography>
+                <Typography variant="body2" sx={{ textAlign: 'center', opacity: 0.72 }}>
+                  🤓 <strong>Did you know?</strong> {sample(TREE_FACTS)}
+                </Typography>
+              </Box>
+            </CardActionArea>
           </Card>
         </Slide>
         <Slide>
           <Card>
-            <Box sx={{ p: 1 }} display='flex' alignItems='center' flexDirection='column'>
-              <ProgressIcon icon={car} progress={66} iconMargin='0 0 20px 0' count={1337} />
-              <Typography variant="body1" gutterBottom>
-                3.63/5.5 kWh of Citroën Ami charged
-              </Typography>
-              <Typography variant="body2" sx={{ textAlign: 'center', opacity: 0.72 }}>
-                🤓 <strong>Did you know?</strong> {sample(CAR_FACTS)}
-              </Typography>
-            </Box>
+            <CardActionArea href="/achievements/car">
+              <Box sx={{ p: 1 }} display='flex' alignItems='center' flexDirection='column'>
+                <ProgressIcon icon={car} progress={66} iconMargin='0 0 20px 0' count={1337} />
+                <Typography variant="body1" gutterBottom>
+                  3.63/5.5 kWh of Citroën Ami charged
+                </Typography>
+                <Typography variant="body2" sx={{ textAlign: 'center', opacity: 0.72 }}>
+                  🤓 <strong>Did you know?</strong> {sample(CAR_FACTS)}
+                </Typography>
+              </Box>
+            </CardActionArea>
           </Card>
         </Slide>
         <Slide>
           <Card>
-            <Box sx={{ p: 1 }} display='flex' alignItems='center' flexDirection='column'>
-              <ProgressIcon icon={book} progress={70} count={23} />
-              <Typography variant="body1" gutterBottom>
-                4.2/6 hours saved to read a book
-              </Typography>
-              <Typography variant="body2" sx={{ textAlign: 'center', opacity: 0.72 }}>
-                🤓 <strong>Did you know?</strong> {sample(TIME_FACTS)}
-              </Typography>
-            </Box>
+            <CardActionArea href="/achievements/book">
+              <Box sx={{ p: 1 }} display='flex' alignItems='center' flexDirection='column'>
+                <ProgressIcon icon={book} progress={70} count={23} />
+                <Typography variant="body1" gutterBottom>
+                  4.2/6 hours saved to read a book
+                </Typography>
+                <Typography variant="body2" sx={{ textAlign: 'center', opacity: 0.72 }}>
+                  🤓 <strong>Did you know?</strong> {sample(TIME_FACTS)}
+                </Typography>
+              </Box>
+            </CardActionArea>
           </Card>
         </Slide>
       </Slider>

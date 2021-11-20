@@ -1,0 +1,83 @@
+
+import { alpha, Card, CardContent, CardHeader, Container, Grid, styled, Typography } from "@mui/material"
+import { useParams } from "react-router-dom"
+import tree from '@iconify/icons-emojione/deciduous-tree'
+import car from '@iconify/icons-emojione/oncoming-automobile'
+import book from '@iconify/icons-emojione/books'
+import { Icon, IconifyIcon } from "@iconify/react"
+import { ProgressIcon } from "../components/app/ProgressIcon"
+
+type Types = 'tree' | 'car' | 'book'
+
+const IconWrapperStyle = styled('div')(({ theme }) => ({
+  display: 'flex',
+  borderRadius: '50%',
+  alignItems: 'center',
+  width: theme.spacing(10),
+  height: theme.spacing(10),
+  justifyContent: 'center',
+  color: theme.palette.primary.dark,
+  backgroundImage: `linear-gradient(135deg, ${alpha(theme.palette.primary.dark, 0)} 0%, ${alpha(
+    theme.palette.primary.dark,
+    0.24
+  )} 100%)`
+}))
+
+const headers: Record<Types, string> = {
+  'tree': '🌳 Trees grown',
+  'car': '🚘 Cars charged',
+  'book': '📚 Books',
+}
+
+const icons: Record<Types, IconifyIcon> = {
+  'tree': tree,
+  'car': car,
+  'book': book,
+}
+
+const counts: Record<Types, number> = {
+  'tree': 11,
+  'car': 102,
+  'book': 23,
+}
+
+const margins: Record<Types, string> = {
+  'tree': 'auto',
+  'car': '0 0 10px 0',
+  'book': 'auto',
+}
+
+const facts: Record<Types, string> = {
+  'tree': '11',
+  'car': '102',
+  'book': '23',
+}
+
+export const Achievements = () => {
+  const { type } = useParams()
+
+  if (type === undefined) return <>Redirect</>
+  const _type = (type as Types)
+  return <>
+    <Container maxWidth="xl" sx={{ py: 3 }}>
+      <Grid container spacing={2} justifyContent='center'>
+        <Grid item xs={12} sm={6}>
+          <Card>
+            <CardHeader title={headers[_type]} />
+            <CardContent>
+              <Grid container spacing={1}>
+                <Grid item xs={3}>
+                  <ProgressIcon progress={42} showProgress={false} icon={icons[_type]} count={0} size={1.5} iconMargin={margins[_type]} />
+                </Grid>
+                {new Array(counts[_type]).fill(void (0)).map((_, i) => <Grid item xs={3}>
+                  <ProgressIcon progress={100} icon={icons[_type]} count={0} size={1.5} iconMargin={margins[_type]} />
+                </Grid>)}
+              </Grid>
+            </CardContent>
+          </Card>
+        </Grid>
+
+      </Grid>
+    </Container>
+  </>
+}

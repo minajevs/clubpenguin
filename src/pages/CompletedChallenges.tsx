@@ -71,10 +71,6 @@ export const CompletedChallenges = () => {
   return <Container maxWidth="xl" sx={{ py: 3 }}>
     <Grid container spacing={2} justifyContent='center'>
       <Grid item xs={12} sm={6}>
-        <Typography variant="h3" gutterBottom>Welcome, Dmitrijs</Typography>
-      </Grid>
-      <Grid item xs={12} />
-      <Grid item xs={12} sm={6}>
         <Card sx={{
           "& .MuiTimelineItem-missingOppositeContent:before": {
             display: "none",

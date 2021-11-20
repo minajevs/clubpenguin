@@ -1,12 +1,12 @@
 import { alpha, Badge, BadgeProps, Box, styled, Typography } from "@mui/material"
 import { Icon, IconifyIcon } from '@iconify/react'
 
-const IconWrapperStyle = styled('div')(({ theme }) => ({
+const IconWrapperStyle = styled('div')<{ size: number }>(({ theme, size }) => ({
   display: 'flex',
   borderRadius: '50%',
   alignItems: 'center',
-  width: theme.spacing(16),
-  height: theme.spacing(16),
+  width: theme.spacing(16 / size),
+  height: theme.spacing(16 / size),
   justifyContent: 'center',
   color: theme.palette.primary.dark,
   backgroundImage: `linear-gradient(135deg, ${alpha(theme.palette.primary.dark, 0)} 0%, ${alpha(
@@ -46,26 +46,30 @@ type Props = {
   count: number
   icon: IconifyIcon
   iconMargin?: string
+  size?: number
+  showProgress?: boolean
 }
 
 
-export const ProgressIcon = ({ progress, icon, count, iconMargin = 'auto' }: Props) => {
+export const ProgressIcon = ({ progress, icon, count, iconMargin = 'auto', size = 1, showProgress = true }: Props) => {
   return <>
     <Box display='flex' justifyContent='center' sx={{ mt: 2 }}>
       <StyledBadge badgeContent={count} color="primary" overlap="circular">
-        <IconWrapperStyle>
-          <Icon icon={icon} width={90} height={90} style={{ filter: 'grayscale(1)', opacity: 0.8, margin: iconMargin }} />
+        <IconWrapperStyle size={size}>
+          <Icon icon={icon} width={90 / size} height={90 / size} style={{ filter: 'grayscale(1)', opacity: 0.8, margin: iconMargin }} />
           <IconColorWrapper style={{ height: `${progress}%` }}>
-            <IconColor>
-              <Icon icon={icon} width={90} height={90} style={{ margin: iconMargin }} />
+            <IconColor size={size}>
+              <Icon icon={icon} width={90 / size} height={90 / size} style={{ margin: iconMargin }} />
             </IconColor>
           </IconColorWrapper>
         </IconWrapperStyle>
       </StyledBadge>
     </Box>
-
-    <Typography variant="h5" sx={{ opacity: 0.90, mb: 2 }}>
-      {progress}%
-    </Typography>
+    {progress < 100 && showProgress
+      ? <Typography variant="h5" sx={{ opacity: 0.90, mb: 2, }}>
+        {progress}%
+      </Typography>
+      : null
+    }
   </>
 }
