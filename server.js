@@ -2,7 +2,7 @@ const { JsonDB } = require('node-json-db')
 const { Config } = require('node-json-db/dist/lib/JsonDBConfig')
 const express = require('express')
 const cors = require('cors')
-const { getMonth, getWeek, getDay, getDaysInMonth, getDate } = require('date-fns')
+const { getMonth, getWeek, getDay, getDaysInMonth, getDate, isToday, isYesterday } = require('date-fns')
 
 var db = new JsonDB(new Config("db", true, false, '/'));
 
@@ -181,6 +181,41 @@ app.get('/apartments/:index/week', function(req, res) {
   }))
 
   res.json(round(result))
+})
+
+app.get('/apartments/:index/usage', function(req, res) {
+  const {
+    Hydractiva_shower,
+    Kitchen_optima_faucet,
+    Optima_faucet,
+    Washing_machine,
+    Dishwasher
+  } = queryDb(req.params.index)
+
+  let result = {
+    today: 0,
+    yesterday: 0
+  }
+
+  ;[
+    Hydractiva_shower,
+    Kitchen_optima_faucet,
+    Optima_faucet,
+    Washing_machine,
+    Dishwasher
+  ].forEach(({ measurements }) => measurements.forEach(({ TimeStamp, Consumption }) => {
+    const date = new Date(TimeStamp.replace('2020', '2021'))
+
+    if (isToday(date)) {
+      result.today += Number(Consumption)
+    }
+
+    if (isYesterday(date)) {
+      result.yesterday += Number(Consumption)
+    }
+  }))
+
+  res.json(result)
 })
 
 const monthlySum = (index) => {
