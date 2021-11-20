@@ -15,7 +15,7 @@ export const App = () => {
   const [chart, setChart] = useState<'week' | 'month'>('week')
 
   return <>
-    <Container maxWidth="xl" sx={{ py: 3 }}>
+    <Container maxWidth="xl" sx={{ pt: 3, pb: 8 }}>
       <Grid container spacing={2} justifyContent='center' alignItems='stretch'>
         <Grid item xs={12} sm={6}>
           <Typography variant="h3" gutterBottom>Welcome, Dmitrijs</Typography>
