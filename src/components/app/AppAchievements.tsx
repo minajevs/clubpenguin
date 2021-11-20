@@ -26,8 +26,11 @@ export const AppAchievements = () => {
           <Card>
             <Box sx={{ p: 1 }} display='flex' alignItems='center' flexDirection='column'>
               <ProgressIcon icon={tree} progress={50} count={11} />
-              <Typography variant="body1" sx={{ opacity: 0.72 }}>
+              <Typography variant="body1" gutterBottom>
                 20/40 liters of water saved to grow a tree
+              </Typography>
+              <Typography variant="body2" sx={{ textAlign: 'center', opacity: 0.72 }}>
+                🤓 <strong>Did you know?</strong> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda, a.
               </Typography>
             </Box>
           </Card>
@@ -36,8 +39,11 @@ export const AppAchievements = () => {
           <Card>
             <Box sx={{ p: 1 }} display='flex' alignItems='center' flexDirection='column'>
               <ProgressIcon icon={car} progress={66} iconMargin='0 0 20px 0' count={102} />
-              <Typography variant="body1" sx={{ opacity: 0.72 }}>
+              <Typography variant="body1" gutterBottom>
                 3.63/5.5 kWh of Citroën Ami charged
+              </Typography>
+              <Typography variant="body2" sx={{ textAlign: 'center', opacity: 0.72 }}>
+                🤓 <strong>Did you know?</strong> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda, a.
               </Typography>
             </Box>
           </Card>
@@ -46,8 +52,11 @@ export const AppAchievements = () => {
           <Card>
             <Box sx={{ p: 1 }} display='flex' alignItems='center' flexDirection='column'>
               <ProgressIcon icon={book} progress={70} count={23} />
-              <Typography variant="body1" sx={{ opacity: 0.72 }}>
+              <Typography variant="body1" gutterBottom>
                 4.2/6 hours saved to read a book
+              </Typography>
+              <Typography variant="body2" sx={{ textAlign: 'center', opacity: 0.72 }}>
+                🤓 <strong>Did you know?</strong> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda, a.
               </Typography>
             </Box>
           </Card>

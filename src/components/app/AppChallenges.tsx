@@ -32,33 +32,37 @@ export const AppChallenges = () => {
       <Slider {...settings}>
         <Slide>
           <Card>
-            <CardHeader title="🧼 Don't drop it!" subheader="Soap your hands for 20 seconds" />
-            <Box sx={{ p: 3, pb: 3 }} dir="ltr">
-              <SpotifyPlayer
-                uri="spotify:album:64PWtKr0oA7mmKQC3SMDde"
-                size={size}
-                view={view}
-                theme={theme}
-              />
-            </Box>
+            <CardActionArea href='/soapchallenge'>
+              <CardHeader title="🧼 Don't drop it!" subheader="Soap your hands for 20 seconds" />
+              <Box sx={{ p: 3, pb: 3 }} dir="ltr">
+                <SpotifyPlayer
+                  uri="spotify:album:64PWtKr0oA7mmKQC3SMDde"
+                  size={size}
+                  view={view}
+                  theme={theme}
+                />
+              </Box>
+            </CardActionArea>
           </Card>
         </Slide>
         <Slide>
           <Card>
-            <CardHeader title="🦷🪥 Brush brush brush" subheader="Brush your teeth in one song" />
-            <Box sx={{ p: 3, pb: 3 }} dir="ltr">
-              <SpotifyPlayer
-                uri="spotify:track:3g7TPO02MaNESuHC4jer3R"
-                size={size}
-                view={view}
-                theme={theme}
-              />
-            </Box>
+            <CardActionArea href='/brushchallenge'>
+              <CardHeader title="🦷🪥 Brush brush brush" subheader="Brush your teeth in one song" />
+              <Box sx={{ p: 3, pb: 3 }} dir="ltr">
+                <SpotifyPlayer
+                  uri="spotify:track:3g7TPO02MaNESuHC4jer3R"
+                  size={size}
+                  view={view}
+                  theme={theme}
+                />
+              </Box>
+            </CardActionArea>
           </Card>
         </Slide>
         <Slide>
           <Card>
-          <CardActionArea href='/showerchallenge'>
+            <CardActionArea href='/showerchallenge'>
               <CardHeader title="🚿 I need a shower" subheader="Take a shower in three songs" />
               <Box sx={{ p: 3, pb: 3 }} dir="ltr">
                 <SpotifyPlayer
@@ -68,7 +72,7 @@ export const AppChallenges = () => {
                   theme={theme}
                 />
               </Box>
-              </CardActionArea>
+            </CardActionArea>
           </Card>
         </Slide>
       </Slider>

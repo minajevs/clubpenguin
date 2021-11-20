@@ -14,6 +14,8 @@ import NotFound from "./pages/Page404"
 import CompletedChallenges from "./pages/CompletedChallenges"
 import ShowerChallenge from "./pages/ShowerChallenge"
 import { Achievements } from "./pages/Achiements"
+import SoapChallenge from "./pages/SoapChallenge"
+import BrushChallenge from "./pages/BrushChallenge"
 
 // ----------------------------------------------------------------------
 
@@ -34,6 +36,14 @@ export default function Router() {
     {
       path: "/achievements/:type",
       element: <Achievements />,
+    },
+    {
+      path: "/soapchallenge",
+      element: <SoapChallenge />,
+    },
+    {
+      path: "/brushchallenge",
+      element: <BrushChallenge />,
     },
     {
       path: "/dashboard",
