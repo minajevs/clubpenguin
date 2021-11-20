@@ -13,7 +13,7 @@ export const App = () => {
 
   return <>
     <Container maxWidth="xl" sx={{ py: 3 }}>
-      <Grid container spacing={2} justifyContent='center'>
+      <Grid container spacing={2} justifyContent='center' alignItems='stretch'>
         <Grid item xs={12} sm={6}>
           <Typography variant="h3" gutterBottom>Welcome, Dmitrijs</Typography>
         </Grid>

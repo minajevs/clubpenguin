@@ -6,12 +6,12 @@ import ToggleButton from "./ToggleButton"
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
-  borderRadius: 5,
+  borderRadius: 0,
   [`&.${linearProgressClasses.colorPrimary}`]: {
     backgroundColor: '#1a90ff',
   },
   [`& .${linearProgressClasses.bar}`]: {
-    borderRadius: 4,
+    borderRadius: 0,
     backgroundColor: '#ec0c0c',
   },
 }));

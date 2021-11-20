@@ -1,6 +1,7 @@
 html, body {
   overflow-x: hidden;
   font-family: 'Fira Sans', sans-serif;
+  background: #eceded;
 }
 
 .apexcharts-tooltip {
