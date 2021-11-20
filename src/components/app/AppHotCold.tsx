@@ -1,7 +1,8 @@
-import { Box, Card, CardHeader, styled, ToggleButtonGroup, ToggleButton } from "@mui/material"
+import { Box, Card, CardHeader, styled, ToggleButtonGroup } from "@mui/material"
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress'
 import { useQuery } from "react-query";
 import { useState, Suspense } from 'react'
+import ToggleButton from "./ToggleButton"
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
@@ -11,7 +12,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
   [`& .${linearProgressClasses.bar}`]: {
     borderRadius: 4,
-    backgroundColor: '#ec4c4c',
+    backgroundColor: '#ec0c0c',
   },
 }));
 
@@ -28,11 +29,15 @@ export const AppWaterUsage = () => {
             color="primary"
             value={chart}
             exclusive
-            onChange={(_, value) => setChart(value)}
-            sx={{ ml: 'auto' }}
+            onChange={(_, value) => setChart(value ?? chart)}
+            sx={{ ml: 'auto', borderRadius: 0 }}
           >
-            <ToggleButton value="week">Week</ToggleButton>
-            <ToggleButton value="month">Month</ToggleButton>
+            <ToggleButton value="week">
+              Week
+            </ToggleButton>
+            <ToggleButton value="month">
+              Month
+            </ToggleButton>
           </ToggleButtonGroup>
         </>}
         titleTypographyProps={{ sx: { display: 'flex', alignItems: 'center' } }}
