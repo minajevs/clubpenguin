@@ -65,6 +65,10 @@ export const Achievements = () => {
   return <>
     <Container maxWidth="xl" sx={{ py: 3 }}>
       <Grid container spacing={2} justifyContent='center'>
+        <Grid item xs={12} sm={6} sx={{ mt: 2 }}>
+          <Typography variant="h3" gutterBottom>Achievements</Typography>
+        </Grid>
+        <Grid item xs={12} sx={{ p: '0 !important' }} />
         <Grid item xs={12} sm={6}>
           <Card>
             <CardHeader
