@@ -70,17 +70,16 @@ export const AppChallenges = () => {
         </Slide>
       </Slider>
     </Box>
-    <Button
+    {/* <Button
       variant="contained"
       color='info'
       component={RouterLink}
       to="/challenges"
-      sx={{ mt: 4 }}
       fullWidth
-      style={{ justifyContent: "flex-start" }}
+      style={{ justifyContent: "flex-start", borderRadius: 0, background: '#5f5f5f', margin: 'auto', width: 'auto' }}
     >
       🏆 Show completed challenges
-    </Button>
+    </Button> */}
   </>
 }
 

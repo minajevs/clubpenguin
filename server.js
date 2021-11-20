@@ -183,7 +183,7 @@ app.get('/apartments/:index/week', function(req, res) {
   res.json(round(result))
 })
 
-app.get('/apartments/:index/usage', function(req, res) {
+app.get('/apartments/:index/water-usage', function(req, res) {
   const {
     Hydractiva_shower,
     Kitchen_optima_faucet,
@@ -212,6 +212,41 @@ app.get('/apartments/:index/usage', function(req, res) {
 
     if (isYesterday(date)) {
       result.yesterday += Number(Consumption)
+    }
+  }))
+
+  res.json(result)
+})
+
+app.get('/apartments/:index/power-usage', function(req, res) {
+  const {
+    Hydractiva_shower,
+    Kitchen_optima_faucet,
+    Optima_faucet,
+    Washing_machine,
+    Dishwasher
+  } = queryDb(req.params.index)
+
+  let result = {
+    today: 0,
+    yesterday: 0
+  }
+
+  ;[
+    Hydractiva_shower,
+    Kitchen_optima_faucet,
+    Optima_faucet,
+    Washing_machine,
+    Dishwasher
+  ].forEach(({ measurements }) => measurements.forEach(({ TimeStamp, Power_Consumption }) => {
+    const date = new Date(TimeStamp.replace('2020', '2021'))
+
+    if (isToday(date)) {
+      result.today += Number(Power_Consumption)
+    }
+
+    if (isYesterday(date)) {
+      result.yesterday += Number(Power_Consumption)
     }
   }))
 

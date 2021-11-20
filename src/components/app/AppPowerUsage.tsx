@@ -1,9 +1,9 @@
 import { Box, Card, CardHeader } from "@mui/material"
 import { useQuery } from "react-query"
 
-export const AppWaterUsage = () => {
-  const { data } = useQuery('water-usage', async () => {
-    const response = await fetch('http://localhost:3001/apartments/11/water-usage')
+export const AppPowerUsage = () => {
+  const { data } = useQuery('power-usage', async () => {
+    const response = await fetch('http://localhost:3001/apartments/11/power-usage')
 
     const json = await response.json()
 
@@ -18,12 +18,12 @@ export const AppWaterUsage = () => {
 
   return (
     <Card>
-      <CardHeader title="Water Usage" subheader={`${today > yesterday ? '+' : '-'}${percentage}% since yesterday`} />
+      <CardHeader title="Power Usage" subheader={`${today > yesterday ? '+' : '-'}${percentage}% since yesterday`} />
       <Box sx={{ p: 3, pb: 3 }} dir="ltr">
-        {`${data.today.toFixed(2)} liters`}
+        {`${data.today.toFixed(2)} kWh`}
       </Box>
     </Card>
   )
 }
 
-export default AppWaterUsage
+export default AppPowerUsage
