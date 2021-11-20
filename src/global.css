@@ -8,3 +8,7 @@ html, body {
   top: 50% !important;
   transform: translateY(-50%);
 }
+
+.slick-dots {
+  bottom: 0;
+}
