@@ -88,11 +88,11 @@ export const Challenge: FC<ChallengeProps> = ({ uri, title, subtitle }) => {
   return <>
     <Container maxWidth="xl">
       <Grid container spacing={2} justifyContent='center'>
-        <Grid item xs={12} sm={6} md={3} sx={{ mt: 2 }}>
+        <Grid item xs={12} sm={6} sx={{ mt: 2 }}>
           <Typography variant="h3" gutterBottom>Challenge</Typography>
         </Grid>
         <Grid item xs={12} sx={{ p: '0 !important' }} />
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid item xs={12} sm={6} >
           <Card>
             <CardHeader title={title} subheader={subtitle} />
             <CardContent>
