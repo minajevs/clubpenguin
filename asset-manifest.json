@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/clubpenguin/static/css/main.5632ec98.chunk.css",
-    "main.js": "/clubpenguin/static/js/main.14419465.chunk.js",
-    "main.js.map": "/clubpenguin/static/js/main.14419465.chunk.js.map",
+    "main.js": "/clubpenguin/static/js/main.54bbe5b3.chunk.js",
+    "main.js.map": "/clubpenguin/static/js/main.54bbe5b3.chunk.js.map",
     "runtime-main.js": "/clubpenguin/static/js/runtime-main.1e23b839.js",
     "runtime-main.js.map": "/clubpenguin/static/js/runtime-main.1e23b839.js.map",
     "static/css/2.94cc32df.chunk.css": "/clubpenguin/static/css/2.94cc32df.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.94cc32df.chunk.css",
     "static/js/2.102abb38.chunk.js",
     "static/css/main.5632ec98.chunk.css",
-    "static/js/main.14419465.chunk.js"
+    "static/js/main.54bbe5b3.chunk.js"
   ]
 }
