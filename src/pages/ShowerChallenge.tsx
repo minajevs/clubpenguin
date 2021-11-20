@@ -17,6 +17,8 @@ export const ShowerChallenge = () => {
     const [time, setTime] = useState(0)
     const [date, setDate] = useState(new Date())
     const [start, setStart] = useState(false)
+    const [liters, setLiters] = useState(0)
+    const [temp, setTemp] = useState(0)
 
     useEffect(() => {
         let interval: NodeJS.Timeout | null = null;
@@ -24,6 +26,10 @@ export const ShowerChallenge = () => {
         if (start) {
             interval = setInterval(() => {
                 setTime(prevTime => prevTime + 10)
+                setLiters(prevLiters => prevLiters + 0.002)
+                setTemp(prevTemp => prevTemp >= 38 
+                    ? prevTemp
+                    : prevTemp + Math.random())
             }, 10)
         } else {
             clearInterval(interval!);
@@ -58,7 +64,7 @@ export const ShowerChallenge = () => {
                 <Grid item xs={12} sx={{ p: '0 !important' }} />
                 <Grid item xs={12} sm={6} md={3}>
                     <Card>
-                    <CardHeader title="🚿 I need a shower" subheader="Take a shower in three songs" />
+                        <CardHeader title="🚿 I need a shower" subheader="Take a shower in three songs" />
                         <CardContent>
                             <Grid container spacing={0} justifyContent='center'>
                                 <Grid item>
@@ -93,6 +99,20 @@ export const ShowerChallenge = () => {
                                     </Box>
                                 </Grid>
                                 <Grid item xs={12} />
+                                <Grid item xs={6}>
+                                    <Box>
+                                        <Typography variant="h4" fontFamily="Quantico">
+                                            {Math.round(liters * 100) / 100} ltr
+                                        </Typography>
+                                    </Box>
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <Box>
+                                        <Typography variant="h4" fontFamily="Quantico">
+                                            {Math.round(temp)} °C
+                                        </Typography>
+                                    </Box>
+                                </Grid>
                                 <Grid item>
                                     <Button onClick={toggleStopwatch}>Click</Button>
                                 </Grid>
