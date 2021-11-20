@@ -60,7 +60,7 @@ const options = {
 
 function AppMonthSumChart() {
   const { data } = useQuery('month', async () => {
-    const response = await fetch('http://localhost:3001/apartments/0/month')
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/apartments/0/month`)
 
     const json = await response.json()
 

@@ -3,7 +3,7 @@ import { useQuery } from "react-query"
 
 export const AppPowerUsage = () => {
   const { data } = useQuery('power-usage', async () => {
-    const response = await fetch('http://localhost:3001/apartments/11/power-usage')
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/apartments/11/power-usage`)
 
     const json = await response.json()
 

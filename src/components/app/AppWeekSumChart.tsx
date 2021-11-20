@@ -66,7 +66,7 @@ const options = {
 
 function AppWeekSumChart() {
   const { data } = useQuery('week', async () => {
-    const response = await fetch('http://localhost:3001/apartments/11/week')
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/apartments/11/week`)
 
     const json = await response.json()
 

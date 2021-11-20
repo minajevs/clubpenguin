@@ -3,7 +3,7 @@ import { useQuery } from "react-query"
 
 export const AppWaterUsage = () => {
   const { data } = useQuery('water-usage', async () => {
-    const response = await fetch('http://localhost:3001/apartments/11/water-usage')
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/apartments/11/water-usage`)
 
     const json = await response.json()
 
