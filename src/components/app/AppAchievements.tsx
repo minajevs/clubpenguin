@@ -1,11 +1,12 @@
 import { Box, Card, CardActionArea, styled, Button, alpha, Typography, Grid } from "@mui/material";
-import Slider, { Settings } from "react-slick"
+import { Settings } from "react-slick"
 import { ProgressIcon } from "./ProgressIcon";
 import tree from '@iconify/icons-emojione/deciduous-tree'
 import car from '@iconify/icons-emojione/oncoming-automobile'
 import book from '@iconify/icons-emojione/books'
 import sample from 'lodash/sample'
 import { Link as RouterLink } from 'react-router-dom'
+import Slider from "../Slider";
 
 const Slide = styled('div')(({ theme }) => ({
   padding: theme.spacing(3, 3, 4, 3),
@@ -41,7 +42,7 @@ export const TIME_FACTS = [
 export const AppAchievements = () => {
   return (
     <Box sx={{ pb: 2, mx: -3, my: -3 }} dir="ltr">
-      <Slider {...settings}>
+      <Slider>
         <Slide>
           <Card>
             {/* @ts-ignore */}
