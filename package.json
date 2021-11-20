@@ -2,7 +2,7 @@
   "name": "junction2021",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://minajevs.github.io/clubpenguin",
+  "homepage": "https://minajevs.github.io/clubpenguin",
   "dependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
