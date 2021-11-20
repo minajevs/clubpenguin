@@ -20,7 +20,7 @@ export const AppWaterUsage = () => {
   const [chart, setChart] = useState<'week' | 'month'>('week')
 
   const { data: monthData } = useQuery('month-temp', async () => {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/apartments/11/month-temp`)
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/apartments/13/month-temp`)
 
     const json = await response.json()
 

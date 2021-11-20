@@ -1,7 +1,8 @@
 import { Box, Card, CardHeader, styled, Typography, Button, Icon } from "@mui/material";
-import Slider, { Settings } from "react-slick"
+import { Settings } from "react-slick"
 import { Link as RouterLink } from 'react-router-dom';
 import CardActionArea from '@mui/material/CardActionArea';
+import Slider from "../Slider";
 //@ts-ignore
 import SpotifyPlayer from 'react-spotify-player';
 
@@ -17,19 +18,10 @@ const Slide = styled('div')(({ theme }) => ({
   padding: theme.spacing(3, 3, 4, 3),
 }))
 
-const settings: Settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: false
-}
-
 export const AppChallenges = () => {
   return <>
     <Box sx={{ pb: 2, mx: -3, my: -3 }} dir="ltr">
-      <Slider {...settings}>
+      <Slider>
         <Slide>
           <Card>
             {/* @ts-ignore */}

@@ -9,6 +9,7 @@ import { ProgressIcon } from "../components/app/ProgressIcon"
 import { CAR_FACTS, TIME_FACTS, TREE_FACTS } from "../components/app/AppAchievements"
 import sample from 'lodash/sample'
 import { FC } from 'react'
+import Page from '../components/Page'
 
 type Types = 'tree' | 'car' | 'book'
 
@@ -61,37 +62,35 @@ export const Achievements: FC<RouteComponentProps<{ type: Types }>> = ({ match: 
 
   if (type === undefined) return <>Redirect</>
   const _type = (type as Types)
-  return <>
-    <Container maxWidth="xl" sx={{ py: 3 }}>
-      <Grid container spacing={2} justifyContent='center'>
-        <Grid item xs={12} sm={6} sx={{ mt: 2 }}>
-          <Typography variant="h3" gutterBottom>Achievements</Typography>
-        </Grid>
-        <Grid item xs={12} sx={{ p: '0 !important' }} />
-        <Grid item xs={12} sm={6}>
-          <Card>
-            <CardHeader
-              title={headers[_type]}
-              subheader={
-                <>
-                  🤓 <strong>Did you know?</strong> {sample(facts)}
-                </>
-              }
-            />
-            <CardContent>
-              <Grid container spacing={1}>
-                <Grid item xs={4} sm={3}>
-                  <ProgressIcon progress={42} showProgress={false} icon={icons[_type]} count={0} size={1.5} iconMargin={margins[_type]} />
-                </Grid>
-                {new Array(counts[_type]).fill(void (0)).map((_, i) => <Grid key={i} item xs={4} sm={3}>
-                  <ProgressIcon progress={100} icon={icons[_type]} count={0} size={1.5} iconMargin={margins[_type]} />
-                </Grid>)}
-              </Grid>
-            </CardContent>
-          </Card>
-        </Grid>
-
+  return <Page>
+    <Grid container spacing={2} justifyContent='center'>
+      <Grid item xs={12} sm={6} sx={{ mt: 2 }}>
+        <Typography variant="h3" gutterBottom>Achievements</Typography>
       </Grid>
-    </Container>
-  </>
+      <Grid item xs={12} sx={{ p: '0 !important' }} />
+      <Grid item xs={12} sm={6}>
+        <Card>
+          <CardHeader
+            title={headers[_type]}
+            subheader={
+              <>
+                🤓 <strong>Did you know?</strong> {sample(facts)}
+              </>
+            }
+          />
+          <CardContent>
+            <Grid container spacing={1}>
+              <Grid item xs={4} sm={3}>
+                <ProgressIcon progress={42} showProgress={false} icon={icons[_type]} count={0} size={1.5} iconMargin={margins[_type]} />
+              </Grid>
+              {new Array(counts[_type]).fill(void (0)).map((_, i) => <Grid key={i} item xs={4} sm={3}>
+                <ProgressIcon progress={100} icon={icons[_type]} count={0} size={1.5} iconMargin={margins[_type]} />
+              </Grid>)}
+            </Grid>
+          </CardContent>
+        </Card>
+      </Grid>
+
+    </Grid>
+  </Page>
 }

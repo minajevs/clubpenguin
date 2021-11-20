@@ -5,6 +5,7 @@ import Clock from 'react-clock';
 import SpotifyPlayer from 'react-spotify-player';
 import { useCallback, useEffect, useRef, useState } from "react";
 import './clock.scss'
+import Page from '../components/Page'
 
 
 const size = {
@@ -85,76 +86,73 @@ export const Challenge: FC<ChallengeProps> = ({ uri, title, subtitle, height }) 
     setToggle(x => !x)
   }, [toggle])
 
-  return <>
-    <Container maxWidth="xl">
-      <Grid container spacing={2} justifyContent='center'>
-        <Grid item xs={12} sm={6} sx={{ mt: 2 }}>
-          <Typography variant="h3" gutterBottom>Challenge</Typography>
-        </Grid>
-        <Grid item xs={12} sx={{ p: '0 !important' }} />
-        <Grid item xs={12} sm={6} >
-          <Card>
-            <CardHeader title={title} subheader={subtitle} />
-            <CardContent>
-              <Grid container spacing={0} justifyContent='center' sx={{ textAlign: 'center' }}>
-                <Grid item>
-                  <SpotifyPlayer
-                    uri={uri}
-                    size={{...size, height}}
-                    view={view}
-                    theme={theme}
-                  />
-                </Grid>
-                <Grid item xs={12} />
-                <Grid item>
-                  <Box sx={{ pt: 2 }}>
-                    <Clock value={state.date} hourHandLength={0} minuteHandLength={90}
-                      minuteHandOppositeLength={16}
-                      minuteHandWidth={6}
-                      minuteMarksWidth={3}
-                      hourMarksLength={15}
-                      secondHandLength={75}
-                      secondHandOppositeLength={25}
-                      secondHandWidth={3} />
-                  </Box>
-                </Grid>
-                <Grid item xs={12} />
-                <Grid item>
-                  <Box sx={{ pt: 2 }}>
-                    <Typography variant="h4" sx={{ fontFamily: "'Quantico', sans-serif", fontWeight: 700, fontStyle: 'italic' }}>
-                      {(Math.floor((state.time / 60000) % 60)).toFixed(0).padStart(2, '0')}:
-                      {(Math.floor((state.time / 1000) % 60)).toFixed(0).padStart(2, '0')},
-                      {((state.time) % 100).toFixed(0).padStart(2, '0')}
-                    </Typography>
-                  </Box>
-                </Grid>
-                <Grid item xs={12} />
-                <Grid item xs={6}>
-                  <Box>
-                    <Typography variant="h4" sx={{ textAlign: 'right', mr: 2, fontFamily: "'Quantico', sans-serif", fontWeight: 700, fontStyle: 'italic' }}>
-                      {(Math.round(state.liters * 100) / 100).toFixed(2)} ltr
-                    </Typography>
-                  </Box>
-                </Grid>
-                <Grid item xs={6}>
-                  <Box>
-                    <Typography variant="h4" sx={{ textAlign: 'left', ml: 2, fontFamily: "'Quantico', sans-serif", fontWeight: 700, fontStyle: 'italic' }}>
-                      {Math.round(state.temp)} °C
-                    </Typography>
-                  </Box>
-                </Grid>
-                <Grid item>
-                  <Button onClick={toggleStopwatch}>[DEV]: Simulate running water </Button>
-                </Grid>
-              </Grid>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} />
+  return <Page>
+    <Grid container spacing={2} justifyContent='center'>
+      <Grid item xs={12} sm={6} sx={{ mt: 2 }}>
+        <Typography variant="h3" gutterBottom>Challenge</Typography>
       </Grid>
-
-    </Container>
-  </>
+      <Grid item xs={12} sx={{ p: '0 !important' }} />
+      <Grid item xs={12} sm={6} >
+        <Card>
+          <CardHeader title={title} subheader={subtitle} />
+          <CardContent>
+            <Grid container spacing={0} justifyContent='center' sx={{ textAlign: 'center' }}>
+              <Grid item>
+                <SpotifyPlayer
+                  uri={uri}
+                  size={{ ...size, height }}
+                  view={view}
+                  theme={theme}
+                />
+              </Grid>
+              <Grid item xs={12} />
+              <Grid item>
+                <Box sx={{ pt: 2 }}>
+                  <Clock value={state.date} hourHandLength={0} minuteHandLength={90}
+                    minuteHandOppositeLength={16}
+                    minuteHandWidth={6}
+                    minuteMarksWidth={3}
+                    hourMarksLength={15}
+                    secondHandLength={75}
+                    secondHandOppositeLength={25}
+                    secondHandWidth={3} />
+                </Box>
+              </Grid>
+              <Grid item xs={12} />
+              <Grid item>
+                <Box sx={{ pt: 2 }}>
+                  <Typography variant="h4" sx={{ fontFamily: "'Quantico', sans-serif", fontWeight: 700, fontStyle: 'italic' }}>
+                    {(Math.floor((state.time / 60000) % 60)).toFixed(0).padStart(2, '0')}:
+                    {(Math.floor((state.time / 1000) % 60)).toFixed(0).padStart(2, '0')},
+                    {((state.time) % 100).toFixed(0).padStart(2, '0')}
+                  </Typography>
+                </Box>
+              </Grid>
+              <Grid item xs={12} />
+              <Grid item xs={6}>
+                <Box>
+                  <Typography variant="h4" sx={{ textAlign: 'right', mr: 2, fontFamily: "'Quantico', sans-serif", fontWeight: 700, fontStyle: 'italic' }}>
+                    {(Math.round(state.liters * 100) / 100).toFixed(2)} ltr
+                  </Typography>
+                </Box>
+              </Grid>
+              <Grid item xs={6}>
+                <Box>
+                  <Typography variant="h4" sx={{ textAlign: 'left', ml: 2, fontFamily: "'Quantico', sans-serif", fontWeight: 700, fontStyle: 'italic' }}>
+                    {Math.round(state.temp)} °C
+                  </Typography>
+                </Box>
+              </Grid>
+              <Grid item>
+                <Button onClick={toggleStopwatch}>[DEV]: Simulate running water </Button>
+              </Grid>
+            </Grid>
+          </CardContent>
+        </Card>
+      </Grid>
+      <Grid item xs={12} />
+    </Grid>
+  </Page>
 }
 
 export default Challenge
