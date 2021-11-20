@@ -23,7 +23,7 @@ ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.NODE_ENV === 'production' ? '/clubpenguin' : ''}>
           <App />
         </BrowserRouter>
       </HelmetProvider>
