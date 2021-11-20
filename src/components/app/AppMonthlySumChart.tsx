@@ -52,7 +52,7 @@ const options = {
 
 function AppSumChart() {
   const { data } = useQuery('months', async () => {
-    const response = await fetch('http://localhost:3001/apartments/0/monthly')
+    const response = await fetch('http://localhost:3001/apartments/11/monthly')
 
     const json = await response.json()
 

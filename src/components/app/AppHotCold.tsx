@@ -53,7 +53,7 @@ export const AppWaterUsage = () => {
 
 const UsageMonth = () => {
   const { data } = useQuery('month-temp', async () => {
-    const response = await fetch('http://localhost:3001/apartments/0/month-temp')
+    const response = await fetch('http://localhost:3001/apartments/11/month-temp')
 
     const json = await response.json()
 
@@ -67,7 +67,7 @@ const UsageMonth = () => {
 
 const UsageWeek = () => {
   const { data } = useQuery('week-temp', async () => {
-    const response = await fetch('http://localhost:3001/apartments/0/week-temp')
+    const response = await fetch('http://localhost:3001/apartments/11/week-temp')
 
     const json = await response.json()
 
