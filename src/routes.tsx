@@ -11,6 +11,7 @@ import Products from "./pages/Products"
 import Blog from "./pages/Blog"
 import User from "./pages/User"
 import NotFound from "./pages/Page404"
+import CompletedChallenges from "./pages/CompletedChallenges"
 
 // ----------------------------------------------------------------------
 
@@ -19,6 +20,10 @@ export default function Router() {
     {
       path: "/app",
       element: <App />,
+    },
+    {
+      path: "/challenges",
+      element: <CompletedChallenges />,
     },
     {
       path: "/dashboard",
