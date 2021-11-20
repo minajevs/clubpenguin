@@ -19,7 +19,7 @@ const settings: Settings = {
   arrows: false
 }
 
-const TREE_FACTS = [
+export const TREE_FACTS = [
   'It takes about 100 gallons of water to grow and process a single pound of cotton, and the average American goes through about 35 pounds of new cotton material each year.',
   'If you water your grass and trees more heavily, but less often, this saves water and builds stronger roots.',
   'It takes 3.3 acre feet of water to grow enough food for an average family for a year.',
@@ -27,13 +27,13 @@ const TREE_FACTS = [
   'By 2025, the world will have about 1 billion additional mouths to feed, and the agricultural sector alone will need an additional 1 trillion cubic meters of water annually. This is equivalent to the annual flow of 20 Nile Rivers.'
 ]
 
-const CAR_FACTS = [
+export const CAR_FACTS = [
   'About 25% of the energy used in your home goes toward heating your water.',
   'By choosing a high efficiency water heater (instead of a standard water heater), you can cut your energy use by 10-50 percent.',
   'Washing your vehicle at home can use up to 148 gallons of water or more for one washing. Self-service car washes use roughly 12 gallons per vehicle in desert regions.'
 ]
 
-const TIME_FACTS = [
+export const TIME_FACTS = [
   'The average 5-minute shower takes 15-25 gallons of water--around 40 gallons are used in 10 minutes.',
 ]
 

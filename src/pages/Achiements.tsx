@@ -6,6 +6,8 @@ import car from '@iconify/icons-emojione/oncoming-automobile'
 import book from '@iconify/icons-emojione/books'
 import { Icon, IconifyIcon } from "@iconify/react"
 import { ProgressIcon } from "../components/app/ProgressIcon"
+import { CAR_FACTS, TIME_FACTS, TREE_FACTS } from "../components/app/AppAchievements"
+import sample from 'lodash/sample'
 
 type Types = 'tree' | 'car' | 'book'
 
@@ -56,6 +58,8 @@ const facts: Record<Types, string> = {
 export const Achievements = () => {
   const { type } = useParams()
 
+  const facts = type === 'tree' ? TREE_FACTS : type === 'car' ? CAR_FACTS : TIME_FACTS
+
   if (type === undefined) return <>Redirect</>
   const _type = (type as Types)
   return <>
@@ -63,7 +67,14 @@ export const Achievements = () => {
       <Grid container spacing={2} justifyContent='center'>
         <Grid item xs={12} sm={6}>
           <Card>
-            <CardHeader title={headers[_type]} />
+            <CardHeader
+              title={headers[_type]}
+              subheader={
+                <>
+                  🤓 <strong>Did you know?</strong> {sample(facts)}
+                </>
+              }
+            />
             <CardContent>
               <Grid container spacing={1}>
                 <Grid item xs={3}>
