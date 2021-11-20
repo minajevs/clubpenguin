@@ -9,13 +9,12 @@ const IconWrapperStyle = styled('div')(({ theme }) => ({
   width: theme.spacing(16),
   height: theme.spacing(16),
   justifyContent: 'center',
-  marginTop: theme.spacing(3),
   color: theme.palette.primary.dark,
   backgroundImage: `linear-gradient(135deg, ${alpha(theme.palette.primary.dark, 0)} 0%, ${alpha(
     theme.palette.primary.dark,
     0.24
   )} 100%)`,
-  position: 'relative'
+  position: 'relative',
 }))
 
 const IconColor = styled(IconWrapperStyle)(() => ({
@@ -40,7 +39,10 @@ type Props = {
 
 export const ProgressIcon = ({ progress }: Props) => {
   return <>
-    <Box display='flex' justifyContent='center'>
+    <Typography variant="h5" sx={{ opacity: 0.90, my: 2 }}>
+      {progress}%
+    </Typography>
+    <Box display='flex' justifyContent='center' sx={{ mb: 2 }}>
       <IconWrapperStyle>
         <Icon icon={tree} width={64} height={64} style={{ filter: 'grayscale(1)', opacity: 0.8 }} />
         <IconColorWrapper style={{ height: `${progress}%` }}>
@@ -50,8 +52,5 @@ export const ProgressIcon = ({ progress }: Props) => {
         </IconColorWrapper>
       </IconWrapperStyle>
     </Box>
-    <Typography variant="h5" sx={{ opacity: 0.90 }}>
-      {progress}%
-    </Typography>
   </>
 }
