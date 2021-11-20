@@ -18,7 +18,8 @@ const options = {
     enabled: false
   },
   stroke: {
-    curve: 'smooth'
+    curve: 'smooth',
+    width: 2
   },
   xaxis: {
     type: 'string',
@@ -44,6 +45,7 @@ const options = {
       },
     }
   ],
+  colors: ['#0197f6', '#07004d', '#ec0c0c'],
   tooltip: {
     x: {
       // format: 'dd/MM/yy'
