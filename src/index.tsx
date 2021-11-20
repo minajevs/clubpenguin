@@ -23,7 +23,7 @@ ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
-        <HashRouter basename={process.env.REACT_APP_BASE_URL}>
+        <HashRouter>
           <App />
         </HashRouter >
       </HelmetProvider>
