@@ -60,7 +60,7 @@ export const App = () => {
         <Grid item xs={12} sm={6}>
           <AppHotCold />
         </Grid>
-        <Grid item xs={12} sx={{ p: '0 !important', mt: 2 }} />
+        <Grid item xs={12} sx={{ p: '0 !important', mt: 4 }} />
         <Grid item xs={12} sm={6}>
           <Box display='flex' alignItems='center' justifyContent='space-between'>
             <Typography variant="h4">Challenges</Typography>

@@ -39,7 +39,7 @@ export const TIME_FACTS = [
 
 export const AppAchievements = () => {
   return (
-    <Box sx={{ pb: 6, mx: -3, my: -3 }} dir="ltr">
+    <Box sx={{ pb: 2, mx: -3, my: -3 }} dir="ltr">
       <Slider {...settings}>
         <Slide>
           <Card>
