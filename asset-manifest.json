@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/clubpenguin/static/css/main.1a3047ba.chunk.css",
-    "main.js": "/clubpenguin/static/js/main.2706c3df.chunk.js",
-    "main.js.map": "/clubpenguin/static/js/main.2706c3df.chunk.js.map",
+    "main.js": "/clubpenguin/static/js/main.e1ef7e6e.chunk.js",
+    "main.js.map": "/clubpenguin/static/js/main.e1ef7e6e.chunk.js.map",
     "runtime-main.js": "/clubpenguin/static/js/runtime-main.3272d027.js",
     "runtime-main.js.map": "/clubpenguin/static/js/runtime-main.3272d027.js.map",
     "static/css/2.94cc32df.chunk.css": "/clubpenguin/static/css/2.94cc32df.chunk.css",
-    "static/js/2.abd8d046.chunk.js": "/clubpenguin/static/js/2.abd8d046.chunk.js",
-    "static/js/2.abd8d046.chunk.js.map": "/clubpenguin/static/js/2.abd8d046.chunk.js.map",
+    "static/js/2.f525a63a.chunk.js": "/clubpenguin/static/js/2.f525a63a.chunk.js",
+    "static/js/2.f525a63a.chunk.js.map": "/clubpenguin/static/js/2.f525a63a.chunk.js.map",
     "static/js/3.1fac3911.chunk.js": "/clubpenguin/static/js/3.1fac3911.chunk.js",
     "static/js/3.1fac3911.chunk.js.map": "/clubpenguin/static/js/3.1fac3911.chunk.js.map",
     "index.html": "/clubpenguin/index.html",
     "static/css/2.94cc32df.chunk.css.map": "/clubpenguin/static/css/2.94cc32df.chunk.css.map",
     "static/css/main.1a3047ba.chunk.css.map": "/clubpenguin/static/css/main.1a3047ba.chunk.css.map",
-    "static/js/2.abd8d046.chunk.js.LICENSE.txt": "/clubpenguin/static/js/2.abd8d046.chunk.js.LICENSE.txt",
+    "static/js/2.f525a63a.chunk.js.LICENSE.txt": "/clubpenguin/static/js/2.f525a63a.chunk.js.LICENSE.txt",
     "static/media/slick-theme.css": "/clubpenguin/static/media/slick.c94f7671.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.3272d027.js",
     "static/css/2.94cc32df.chunk.css",
-    "static/js/2.abd8d046.chunk.js",
+    "static/js/2.f525a63a.chunk.js",
     "static/css/main.1a3047ba.chunk.css",
-    "static/js/main.2706c3df.chunk.js"
+    "static/js/main.e1ef7e6e.chunk.js"
   ]
 }
