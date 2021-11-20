@@ -12,12 +12,13 @@ export const App = () => {
   const [chart, setChart] = useState<'week' | 'month'>('week')
 
   return <>
-    <Container maxWidth="xl">
-      <Box sx={{ pt: 3, pb: 1 }}>
-        <Typography variant="h4">Summary</Typography>
-      </Box>
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} md={3}>
+    <Container maxWidth="xl" sx={{ py: 3 }}>
+      <Grid container spacing={2} justifyContent='center'>
+        <Grid item xs={12} sm={6}>
+          <Typography variant="h3" gutterBottom>Welcome, Dmitrijs</Typography>
+        </Grid>
+        <Grid item xs={12} />
+        <Grid item xs={12} sm={6}>
           <Card>
             <CardHeader
               title={<>
@@ -45,30 +46,27 @@ export const App = () => {
             </Suspense>
           </Card>
         </Grid>
+        <Grid item xs={12} />
         <Grid item xs={12} sm={6} md={3}>
           <AppWaterUsage />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <AppHotCold />
         </Grid>
-      </Grid>
-    </Container>
-    <Container maxWidth="xl">
-      <Box sx={{ pt: 3, pb: 1 }}>
-        <Typography variant="h4">Challenges</Typography>
-      </Box>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid item xs={12} />
+        <Grid item xs={12} sm={6}>
+          <Typography variant="h4">Challenges</Typography>
+        </Grid>
+        <Grid item xs={12} />
+        <Grid item xs={12} sm={6}>
           <AppChallenges />
         </Grid>
-      </Grid>
-    </Container>
-    <Container maxWidth="xl">
-      <Box sx={{ pt: 3, pb: 1 }}>
-        <Typography variant="h4">Achievements</Typography>
-      </Box>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid item xs={12} />
+        <Grid item xs={12} sm={6}>
+          <Typography variant="h4">Achievements</Typography>
+        </Grid>
+        <Grid item xs={12} />
+        <Grid item xs={12} sm={6}>
           <AppAchievements />
         </Grid>
       </Grid>

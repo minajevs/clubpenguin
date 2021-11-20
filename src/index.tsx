@@ -14,6 +14,8 @@ import {
   QueryClientProvider,
 } from 'react-query'
 
+import './global.css'
+
 const queryClient = new QueryClient()
 
 ReactDOM.render(
