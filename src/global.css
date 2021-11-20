@@ -1,3 +1,9 @@
 html, body {
   overflow-x: hidden;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.apexcharts-tooltip {
+  top: 50% !important;
+  transform: translateY(-50%);
 }

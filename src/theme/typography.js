@@ -18,7 +18,7 @@ function responsiveFontSizes({ sm, md, lg }) {
   }
 }
 
-const FONT_PRIMARY = "Poppins, sans-serif"
+const FONT_PRIMARY = "'Fira Sans', sans-serif"
 
 const typography = {
   fontFamily: FONT_PRIMARY,
