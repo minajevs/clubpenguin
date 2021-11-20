@@ -13,13 +13,7 @@ const view = "coverart"; // or 'list'
 const theme = "white"; // or 'black'
 
 const Slide = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 1, 0, 0)
-}))
-
-const ChallengeCard = styled(Card)(({ theme }) => ({
-  boxShadow: 'none',
-  border: 'none',
-  backgroundColor: '#ffffff'
+  padding: theme.spacing(3, 3, 4, 3),
 }))
 
 const settings: Settings = {
@@ -32,11 +26,10 @@ const settings: Settings = {
 
 export const AppChallenges = () => {
   return <>
-    <Card>
-      <Box sx={{ pb: 6 }} dir="ltr">
+      <Box sx={{ pb: 6, mx: -3, my: -3 }} dir="ltr">
         <Slider {...settings}>
           <Slide>
-            <ChallengeCard>
+            <Card>
               <CardHeader title="🧼 Don't drop it!" subheader="Soap your hands for 20 seconds" />
               <Box sx={{ p: 3, pb: 3 }} dir="ltr">
                 <SpotifyPlayer
@@ -46,10 +39,10 @@ export const AppChallenges = () => {
                   theme={theme}
                 />
               </Box>
-            </ChallengeCard>
+            </Card>
           </Slide>
           <Slide>
-            <ChallengeCard>
+            <Card>
               <CardHeader title="🦷🪥 Brush brush brush" subheader="Brush your teeth in one song" />
               <Box sx={{ p: 3, pb: 3 }} dir="ltr">
                 <SpotifyPlayer
@@ -59,10 +52,10 @@ export const AppChallenges = () => {
                   theme={theme}
                 />
               </Box>
-            </ChallengeCard>
+            </Card>
           </Slide>
           <Slide>
-            <ChallengeCard>
+            <Card>
               <CardHeader title="🚿 I need a shower" subheader="Take a shower in three songs" />
               <Box sx={{ p: 3, pb: 3 }} dir="ltr">
                 <SpotifyPlayer
@@ -72,11 +65,10 @@ export const AppChallenges = () => {
                   theme={theme}
                 />
               </Box>
-            </ChallengeCard>
+            </Card>
           </Slide>
         </Slider>
       </Box>
-    </Card>
     <Button
       variant="contained"
       color='info'
