@@ -3,6 +3,7 @@ import App from "./pages/App"
 import CompletedChallenges from "./pages/CompletedChallenges"
 import Challenge from "./pages/Challenge"
 import { Achievements } from "./pages/Achiements"
+import Connections from "./pages/Connections"
 
 export default function Router() {
   return (
@@ -10,6 +11,7 @@ export default function Router() {
       <Route path="/app" component={App} />
       <Route path="/challenges" component={CompletedChallenges} />
       <Route path="/achievements/:type" component={Achievements} />
+      <Route path="/connections" component={Connections} />
       <Route
         path="/showerchallenge"
         render={() => (

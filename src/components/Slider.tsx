@@ -6,19 +6,14 @@ export default class Carousel extends React.Component {
   carouselRef = React.createRef<any>();
 
   handleMouseDown = (event: any) => {
-    console.log('handleMouseDown');
     event.preventDefault();
   };
 
   handleMouseUp = () => {
-    console.log('handleMouseUp');
-    console.log(`swiping: ${this.carouselRef.current.innerSlider.state.swiping}`);
     this.swiping = this.carouselRef.current.innerSlider.state.swiping;
   };
 
   handleClick = (event: any) => {
-    console.log('handleClick');
-    console.log(`swiping: ${this.swiping}`);
     if (this.swiping) {
       event.preventDefault();
     }

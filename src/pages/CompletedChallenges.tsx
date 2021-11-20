@@ -8,6 +8,7 @@ import {
   TimelineDot
 } from '@mui/lab';
 import { format, formatDistance, subDays } from "date-fns";
+import Page from '../components/Page'
 
 type ItemParams = {
   title: string
@@ -68,7 +69,7 @@ const Item = ({ item, isLast = false }: ItemProps) => {
 }
 
 export const CompletedChallenges = () => {
-  return <Container maxWidth="xl" sx={{ py: 3 }}>
+  return <Page>
     <Grid container spacing={2} justifyContent='center'>
       <Grid item xs={12} sm={6}>
         <Typography variant="h3" gutterBottom>Challenges</Typography>
@@ -92,7 +93,7 @@ export const CompletedChallenges = () => {
       </Grid>
 
     </Grid>
-  </Container>
+  </Page>
 }
 
 export default CompletedChallenges

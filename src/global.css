@@ -1,6 +1,7 @@
-html, body {
+html,
+body {
   overflow-x: hidden;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: "Fira Sans", sans-serif;
   background: #eceded;
 }
 
@@ -11,4 +12,9 @@ html, body {
 
 .slick-dots {
   bottom: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
 }
