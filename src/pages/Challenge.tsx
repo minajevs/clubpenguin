@@ -121,7 +121,7 @@ export const Challenge: FC<ChallengeProps> = ({ uri, title, subtitle }) => {
                 <Grid item xs={12} />
                 <Grid item>
                   <Box sx={{ pt: 2 }}>
-                    <Typography variant="h4" fontFamily="Quantico">
+                    <Typography variant="h4" sx={{ fontFamily: "'Quantico', sans-serif" }}>
                       {(Math.floor((state.time / 60000) % 60)).toFixed(0).padStart(2, '0')}:
                       {(Math.floor((state.time / 1000) % 60)).toFixed(0).padStart(2, '0')},
                       {((state.time) % 100).toFixed(0).padStart(2, '0')}
@@ -131,14 +131,14 @@ export const Challenge: FC<ChallengeProps> = ({ uri, title, subtitle }) => {
                 <Grid item xs={12} />
                 <Grid item xs={6}>
                   <Box>
-                    <Typography variant="h4" fontFamily="Quantico" sx={{ textAlign: 'right', mr: 2 }}>
+                    <Typography variant="h4" sx={{ textAlign: 'right', mr: 2, fontFamily: "'Quantico', sans-serif" }}>
                       {(Math.round(state.liters * 100) / 100).toFixed(2)} ltr
                     </Typography>
                   </Box>
                 </Grid>
                 <Grid item xs={6}>
                   <Box>
-                    <Typography variant="h4" fontFamily="Quantico" sx={{ textAlign: 'left', ml: 2 }}>
+                    <Typography variant="h4" sx={{ textAlign: 'left', ml: 2, fontFamily: "'Quantico', sans-serif" }}>
                       {Math.round(state.temp)} °C
                     </Typography>
                   </Box>
