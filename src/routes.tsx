@@ -68,5 +68,5 @@ export default function Router() {
       ],
     },
     { path: "*", element: <Navigate to="/404" replace /> },
-  ])
+  ], { pathname: process.env.REACT_APP_BASE_URL })
 }
