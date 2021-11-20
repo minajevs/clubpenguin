@@ -19,13 +19,11 @@ import './global.css'
 
 const queryClient = new QueryClient()
 
-console.log(process.env.NODE_ENV)
-
 ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
-        <HashRouter basename={process.env.NODE_ENV === 'production' ? '/clubpenguin' : ''}>
+        <HashRouter basename={process.env.REACT_APP_BASE_URL}>
           <App />
         </HashRouter >
       </HelmetProvider>

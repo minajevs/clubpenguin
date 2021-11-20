@@ -9,6 +9,7 @@ jobs:
   build:
     env:
       REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+      REACT_APP_BASE_URL: /clubpenguin
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
