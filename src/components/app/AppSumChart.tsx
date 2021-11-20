@@ -1,10 +1,14 @@
 import ReactApexChart from 'react-apexcharts';
 import { useQuery } from 'react-query'
+import { Card } from '@mui/material';
 
 const options = {
   chart: {
     height: 350,
-    type: 'area'
+    type: 'area',
+    toolbar: {
+      show: false
+    },
   },
   dataLabels: {
     enabled: false
@@ -16,7 +20,7 @@ const options = {
     type: 'datetime',
     categories: Array.apply(null, Array(12)).map((_, i) => new Date(2021, i, 1).toISOString()),
     labels: {
-      format: "MMMM"
+      format: "MMM"
     }
   },
   yaxis: [
@@ -30,23 +34,23 @@ const options = {
       show: false,
       title: {
         text: "Flow Time"
-      }
+      },
     },
     {
       show: false,
       title: {
         text: "Power Consumption"
-      }
+      },
     }
   ],
   tooltip: {
     x: {
-      format: 'dd/MM/yy HH:mm'
+      format: 'dd/MM/yy'
     },
   }
 }
 
-function Api() {
+function AppSumChart() {
   const { data } = useQuery('todos', async () => {
     const response = await fetch('http://localhost:3001/apartments/0/monthly')
 
@@ -73,10 +77,12 @@ function Api() {
   ]
 
   return (
-    <div id="chart">
-      <ReactApexChart options={options as any} series={series} type="area" height={350} />
-    </div>
+    <Card>
+      <div id="chart">
+        <ReactApexChart options={options as any} series={series} type="area" height={350} />
+      </div>
+    </Card>
   )
 }
 
-export default Api
+export default AppSumChart
