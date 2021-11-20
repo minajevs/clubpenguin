@@ -70,7 +70,17 @@ export const App = () => {
               component={RouterLink}
               to="/challenges"
               fullWidth
-              style={{ justifyContent: "flex-start", borderRadius: 0, background: '#5f5f5f' }}
+              sx={{
+                justifyContent: "flex-start",
+                borderRadius: 0,
+                background: '#5f5f5f',
+                width: 'auto',
+                marginLeft: 'auto',
+                display: { xs: 'none', md: 'inline-flex' },
+                '&:hover': {
+                  background: '#ec0c0c'
+                }
+              }}
             >
               🏆 Show completed challenges
             </Button>
