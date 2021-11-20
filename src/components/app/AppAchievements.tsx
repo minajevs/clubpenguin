@@ -30,7 +30,7 @@ export const AppAchievements = () => {
       <Slide>
         <AchievementCard>
           <Grid container spacing={0} direction='column' alignItems='center' sx={{ pb: 3 }}>
-            <Box display='flex' justifyContent='center'>
+            <Box display='flex' alignItems='center' flexDirection='column'>
               <ProgressIcon progress={50} />
             </Box>
             <Typography variant="body1" sx={{ opacity: 0.72 }}>
