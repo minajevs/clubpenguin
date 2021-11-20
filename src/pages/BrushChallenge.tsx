@@ -8,12 +8,12 @@ import './clock.scss'
 
 const size = {
     width: '100%',
-    height: 175,
+    height: 80,
 };
-const view = "list"; // or 'list'
+const view = "coverart"; // or 'list'
 const theme = "white"; // or 'black'
 
-export const ShowerChallenge = () => {
+export const BrushChallenge = () => {
     const [time, setTime] = useState(0)
     const [date, setDate] = useState(new Date())
     const [start, setStart] = useState(false)
@@ -54,12 +54,12 @@ export const ShowerChallenge = () => {
             <Grid container spacing={2} justifyContent='center'>
                 <Grid item xs={12} sm={6} md={3}>
                     <Card>
-                    <CardHeader title="🚿 I need a shower" subheader="Take a shower in three songs" />
+                    <CardHeader title="🦷🪥 Brush brush brush" subheader="Brush your teeth in one song" />
                         <CardContent>
                             <Grid container spacing={0} justifyContent='center'>
                                 <Grid item>
                                     <SpotifyPlayer
-                                        uri="spotify:album:1pg8XypcyejiasjfBgGEgL"
+                                        uri="spotify:album:64PWtKr0oA7mmKQC3SMDde"
                                         size={size}
                                         view={view}
                                         theme={theme}
@@ -103,4 +103,4 @@ export const ShowerChallenge = () => {
     </>
 }
 
-export default ShowerChallenge
+export default BrushChallenge
