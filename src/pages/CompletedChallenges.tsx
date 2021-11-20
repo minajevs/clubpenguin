@@ -71,12 +71,16 @@ export const CompletedChallenges = () => {
   return <Container maxWidth="xl" sx={{ py: 3 }}>
     <Grid container spacing={2} justifyContent='center'>
       <Grid item xs={12} sm={6}>
+        <Typography variant="h3" gutterBottom>Challenges</Typography>
+      </Grid>
+      <Grid item xs={12} sx={{ p: '0 !important' }} />
+      <Grid item xs={12} sm={6}>
         <Card sx={{
           "& .MuiTimelineItem-missingOppositeContent:before": {
             display: "none",
           },
         }}>
-          <CardHeader title="🏆 Completed Challenges" />
+          <CardHeader title="🏆 Your completed" />
           <CardContent>
             <Timeline>
               {challenges.map((item, index) => (
