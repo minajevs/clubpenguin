@@ -1,6 +1,4 @@
 import ReactApexChart from 'react-apexcharts';
-import { useQuery } from 'react-query'
-import { Card } from '@mui/material';
 import { secondsToMinutes } from 'date-fns';
 
 const options = {
@@ -64,17 +62,7 @@ const options = {
   }
 }
 
-function AppWeekSumChart() {
-  const { data } = useQuery('week', async () => {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/apartments/11/week`)
-
-    const json = await response.json()
-
-    return json
-  })
-
-  if (!data) return null
-
+function AppWeekSumChart({ data }: { data: any }) {
   const series = [
     {
       name: 'Consumption',

@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react"
+import { useState } from "react"
 import { Container, Grid, ToggleButtonGroup, Typography, Card, CardHeader, Button } from "@mui/material"
 import AppWaterUsage from "../components/app/AppWaterUsage"
 import AppHotCold from "../components/app/AppHotCold"
@@ -10,9 +10,26 @@ import ToggleButton from "../components/app/ToggleButton"
 import AppPowerUsage from "../components/app/AppPowerUsage"
 import { Box } from "@mui/system"
 import { Link as RouterLink } from 'react-router-dom';
+import { useQuery } from "react-query"
 
 export const App = () => {
   const [chart, setChart] = useState<'week' | 'month'>('week')
+
+  const { data: weekData } = useQuery('week', async () => {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/apartments/11/week`)
+
+    const json = await response.json()
+
+    return json
+  })
+
+  const { data: monthData } = useQuery('month', async () => {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/apartments/0/month`)
+
+    const json = await response.json()
+
+    return json
+  })
 
   return <>
     <Container maxWidth="xl" sx={{ pt: 3, pb: 8 }}>
@@ -40,13 +57,7 @@ export const App = () => {
               </>}
               titleTypographyProps={{ sx: { display: 'flex', alignItems: 'center' } }}
             />
-            <Suspense fallback={'TODO'}>
-              {chart === 'week' ? (
-                <AppWeekSumChart />
-              ) : (
-                <AppMonthSumChart />
-              )}
-            </Suspense>
+            {chart === 'week' ? weekData ? <AppWeekSumChart data={weekData} /> : null : monthData ? <AppMonthSumChart data={monthData} /> : null}
           </Card>
         </Grid>
         <Grid item xs={12} sx={{ p: '0 !important' }} />

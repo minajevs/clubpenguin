@@ -1,6 +1,4 @@
 import ReactApexChart from 'react-apexcharts';
-import { useQuery } from 'react-query'
-import { Card } from '@mui/material';
 import { getDaysInMonth, getMonth } from 'date-fns';
 
 const month = getMonth(new Date())
@@ -58,17 +56,7 @@ const options = {
   }
 }
 
-function AppMonthSumChart() {
-  const { data } = useQuery('month', async () => {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/apartments/0/month`)
-
-    const json = await response.json()
-
-    return json
-  })
-
-  if (!data) return null
-
+function AppMonthSumChart({ data }: { data: any }) {
   const series = [
     {
       name: 'Consumption',

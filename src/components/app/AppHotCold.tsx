@@ -1,7 +1,7 @@
 import { Box, Card, CardHeader, styled, ToggleButtonGroup } from "@mui/material"
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress'
 import { useQuery } from "react-query";
-import { useState, Suspense } from 'react'
+import { useState } from 'react'
 import ToggleButton from "./ToggleButton"
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -18,6 +18,24 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 
 export const AppWaterUsage = () => {
   const [chart, setChart] = useState<'week' | 'month'>('week')
+
+  const { data: monthData } = useQuery('month-temp', async () => {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/apartments/11/month-temp`)
+
+    const json = await response.json()
+
+    return json
+  })
+
+  const { data: weekData } = useQuery('week-temp', async () => {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/apartments/11/week-temp`)
+
+    const json = await response.json()
+
+    return json
+  })
+
+  if (!monthData || !weekData) return null
 
   return (
     <Card>
@@ -44,44 +62,10 @@ export const AppWaterUsage = () => {
         subheader="keep up using less hot water!"
       />
       <Box sx={{ p: 3, pb: 3 }} dir="ltr">
-        <Suspense fallback='TODO'>
-          {chart === 'week' ? (
-            <UsageWeek />
-          ) : (
-            <UsageMonth />
-          )}
-        </Suspense>
+        <BorderLinearProgress variant="determinate" value={100 - (chart === 'week' ? weekData.Cold_Percentage : monthData.Cold_Percentage)} />
       </Box>
     </Card>
   )
-}
-
-const UsageMonth = () => {
-  const { data } = useQuery('month-temp', async () => {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/apartments/11/month-temp`)
-
-    const json = await response.json()
-
-    return json
-  })
-
-  if (!data) return null
-
-  return (<BorderLinearProgress variant="determinate" value={100 - data.Cold_Percentage} />)
-}
-
-const UsageWeek = () => {
-  const { data } = useQuery('week-temp', async () => {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/apartments/11/week-temp`)
-
-    const json = await response.json()
-
-    return json
-  })
-
-  if (!data) return null
-
-  return (<BorderLinearProgress variant="determinate" value={100 - data.Cold_Percentage} />)
 }
 
 export default AppWaterUsage
