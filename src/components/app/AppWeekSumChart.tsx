@@ -89,7 +89,7 @@ function AppWeekSumChart() {
   ]
 
   return (
-    <ReactApexChart options={options as any} series={series} type="area" height={350} />
+    <ReactApexChart options={options as any} series={series} type="area" height={200} />
   )
 }
 
