@@ -78,12 +78,15 @@ const typography = {
     fontSize: pxToRem(14),
   },
   body1: {
+    fontWeight: 700,
     lineHeight: 1.5,
     fontSize: pxToRem(16),
+    letterSpacing: -0.5
   },
   body2: {
     lineHeight: 22 / 14,
     fontSize: pxToRem(14),
+    letterSpacing: -0.5
   },
   caption: {
     lineHeight: 1.5,
