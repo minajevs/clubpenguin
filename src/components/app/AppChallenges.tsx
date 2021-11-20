@@ -26,54 +26,54 @@ const settings: Settings = {
 
 export const AppChallenges = () => {
   return <>
-      <Box sx={{ pb: 6, mx: -3, my: -3 }} dir="ltr">
-        <Slider {...settings}>
-          <Slide>
-            <Card>
-              <CardHeader title="🧼 Don't drop it!" subheader="Soap your hands for 20 seconds" />
-              <Box sx={{ p: 3, pb: 3 }} dir="ltr">
-                <SpotifyPlayer
-                  uri="spotify:album:64PWtKr0oA7mmKQC3SMDde"
-                  size={size}
-                  view={view}
-                  theme={theme}
-                />
-              </Box>
-            </Card>
-          </Slide>
-          <Slide>
-            <Card>
-              <CardHeader title="🦷🪥 Brush brush brush" subheader="Brush your teeth in one song" />
-              <Box sx={{ p: 3, pb: 3 }} dir="ltr">
-                <SpotifyPlayer
-                  uri="spotify:track:3g7TPO02MaNESuHC4jer3R"
-                  size={size}
-                  view={view}
-                  theme={theme}
-                />
-              </Box>
-            </Card>
-          </Slide>
-          <Slide>
-            <Card>
-              <CardHeader title="🚿 I need a shower" subheader="Take a shower in three songs" />
-              <Box sx={{ p: 3, pb: 3 }} dir="ltr">
-                <SpotifyPlayer
-                  uri="spotify:album:4htoDDUSJXQzMbqTzFVVux"
-                  size={size}
-                  view={view}
-                  theme={theme}
-                />
-              </Box>
-            </Card>
-          </Slide>
-        </Slider>
-      </Box>
+    <Box sx={{ pb: 6, mx: -3, my: -3 }} dir="ltr">
+      <Slider {...settings}>
+        <Slide>
+          <Card>
+            <CardHeader title="🧼 Don't drop it!" subheader="Soap your hands for 20 seconds" />
+            <Box sx={{ p: 3, pb: 3 }} dir="ltr">
+              <SpotifyPlayer
+                uri="spotify:album:64PWtKr0oA7mmKQC3SMDde"
+                size={size}
+                view={view}
+                theme={theme}
+              />
+            </Box>
+          </Card>
+        </Slide>
+        <Slide>
+          <Card>
+            <CardHeader title="🦷🪥 Brush brush brush" subheader="Brush your teeth in one song" />
+            <Box sx={{ p: 3, pb: 3 }} dir="ltr">
+              <SpotifyPlayer
+                uri="spotify:track:3g7TPO02MaNESuHC4jer3R"
+                size={size}
+                view={view}
+                theme={theme}
+              />
+            </Box>
+          </Card>
+        </Slide>
+        <Slide>
+          <Card>
+            <CardHeader title="🚿 I need a shower" subheader="Take a shower in three songs" />
+            <Box sx={{ p: 3, pb: 3 }} dir="ltr">
+              <SpotifyPlayer
+                uri="spotify:album:4htoDDUSJXQzMbqTzFVVux"
+                size={size}
+                view={view}
+                theme={theme}
+              />
+            </Box>
+          </Card>
+        </Slide>
+      </Slider>
+    </Box>
     <Button
       variant="contained"
       color='info'
       component={RouterLink}
-      to="#"
+      to="/challenges"
       sx={{ mt: 4 }}
       fullWidth
       style={{ justifyContent: "flex-start" }}
