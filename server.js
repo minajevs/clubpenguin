@@ -2,7 +2,7 @@ const { JsonDB } = require('node-json-db')
 const { Config } = require('node-json-db/dist/lib/JsonDBConfig')
 const express = require('express')
 const cors = require('cors')
-const { getMonth } = require('date-fns')
+const { getMonth, getWeek, getDay, getDaysInMonth, getDate } = require('date-fns')
 
 var db = new JsonDB(new Config("db", true, false, '/'));
 
@@ -34,19 +34,97 @@ app.get('/apartments/:index/dishwasher', function (req, res) {
 })
 
 app.get('/apartments/:index/monthly', function(req, res) {
+  res.json(monthlySum(req.params.index))
+})
+
+app.get('/apartments/:index/weekly', function(req, res) {
+  res.json(weeklySum(req.params.index))
+})
+
+app.get('/apartments/:index/month', function(req, res) {
+    const {
+    Hydractiva_shower,
+    Kitchen_optima_faucet,
+    Optima_faucet,
+    Washing_machine,
+    Dishwasher
+  } = queryDb(req.params.index)
+
+  const date = new Date()
+  const current = getMonth(date)
+
+  let result = initial(getDaysInMonth(date))
+
+  ;[
+    Hydractiva_shower,
+    Kitchen_optima_faucet,
+    Optima_faucet,
+    Washing_machine,
+    Dishwasher
+  ].forEach(({ measurements }) => measurements.forEach(({ TimeStamp, Consumption, FlowTime, Power_Consumption }) => {
+    const date = new Date(TimeStamp)
+    const month = getMonth(date)
+
+    if (month !== current) return
+
+    const day = getDate(date)
+
+    result.Consumption[day - 1] += Number(Consumption)
+    result.FlowTime[day - 1] += Number(FlowTime)
+    result.Power_Consumption[day - 1] += Number(Power_Consumption)
+  }))
+
+  res.json(round(result))
+})
+
+
+app.get('/apartments/:index/week', function(req, res) {
+    const {
+    Hydractiva_shower,
+    Kitchen_optima_faucet,
+    Optima_faucet,
+    Washing_machine,
+    Dishwasher
+  } = queryDb(req.params.index)
+
+  let result = initial(7)
+
+  const current = getWeek(new Date())
+
+  ;[
+    Hydractiva_shower,
+    Kitchen_optima_faucet,
+    Optima_faucet,
+    Washing_machine,
+    Dishwasher
+  ].forEach(({ measurements }) => measurements.forEach(({ TimeStamp, Consumption, FlowTime, Power_Consumption }) => {
+    const date = new Date(TimeStamp)
+    const week = getWeek(date)
+
+    if (week !== current) return
+
+    const day = getDay(date)
+
+    const index = day === 0 ? 6 : day - 1
+
+    result.Consumption[index] += Number(Consumption)
+    result.FlowTime[index] += Number(FlowTime)
+    result.Power_Consumption[index] += Number(Power_Consumption)
+  }))
+
+  res.json(round(result))
+})
+
+const monthlySum = (index) => {
   const {
     Hydractiva_shower,
     Kitchen_optima_faucet,
     Optima_faucet,
     Washing_machine,
     Dishwasher
-  } = db.getData(`/houses[0]/apartments[${req.params.index}]`)
+  } = queryDb(index)
 
-  let result = {
-    Consumption: Array(12).fill(0),
-    FlowTime: Array(12).fill(0),
-    Power_Consumption: Array(12).fill(0)
-  }
+  let result = initial(12)
 
   ;[
     Hydractiva_shower,
@@ -62,11 +140,50 @@ app.get('/apartments/:index/monthly', function(req, res) {
     result.Power_Consumption[month] += Number(Power_Consumption)
   }))
 
-  res.json({
-    Consumption: result.Consumption.map(item => parseFloat(item.toFixed(2))),
-    FlowTime: result.FlowTime.map(item => parseFloat(item.toFixed(2))),
-    Power_Consumption: result.Power_Consumption.map(item => parseFloat(item.toFixed(2)))
-  })
+  return round(result)
+}
+
+const weeklySum = (index) => {
+  const {
+    Hydractiva_shower,
+    Kitchen_optima_faucet,
+    Optima_faucet,
+    Washing_machine,
+    Dishwasher
+  } = queryDb(index)
+
+  let result = initial(52)
+
+  ;[
+    Hydractiva_shower,
+    Kitchen_optima_faucet,
+    Optima_faucet,
+    Washing_machine,
+    Dishwasher
+  ].forEach(({ measurements }) => measurements.forEach(({ TimeStamp, Consumption, FlowTime, Power_Consumption }) => {
+    const week = getWeek(new Date(TimeStamp))
+
+    result.Consumption[week - 1] += Number(Consumption)
+    result.FlowTime[week - 1] += Number(FlowTime)
+    result.Power_Consumption[week - 1] += Number(Power_Consumption)
+  }))
+
+  return round(result)
+}
+
+const queryDb = (index) =>
+  db.getData(`/houses[0]/apartments[${index}]`)
+
+const initial = (count) => ({
+  Consumption: Array(count).fill(0),
+  FlowTime: Array(count).fill(0),
+  Power_Consumption: Array(count).fill(0)
+})
+
+const round = (result) => ({
+  Consumption: result.Consumption.map(item => parseFloat(item.toFixed(2))),
+  FlowTime: result.FlowTime.map(item => parseFloat(item.toFixed(2))),
+  Power_Consumption: result.Power_Consumption.map(item => parseFloat(item.toFixed(2)))
 })
 
 app.listen(3001)

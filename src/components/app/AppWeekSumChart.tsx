@@ -17,11 +17,8 @@ const options = {
     curve: 'smooth'
   },
   xaxis: {
-    type: 'datetime',
-    categories: Array.apply(null, Array(12)).map((_, i) => new Date(2021, i, 1).toISOString()),
-    labels: {
-      format: "MMM"
-    }
+    type: 'string',
+    categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
   },
   yaxis: [
     {
@@ -45,14 +42,14 @@ const options = {
   ],
   tooltip: {
     x: {
-      format: 'dd/MM/yy'
+      // format: 'dd/MM/yy'
     },
   }
 }
 
-function AppSumChart() {
-  const { data } = useQuery('todos', async () => {
-    const response = await fetch('http://localhost:3001/apartments/0/monthly')
+function AppWeekSumChart() {
+  const { data } = useQuery('week', async () => {
+    const response = await fetch('http://localhost:3001/apartments/0/week')
 
     const json = await response.json()
 
@@ -77,12 +74,8 @@ function AppSumChart() {
   ]
 
   return (
-    <Card>
-      <div id="chart">
-        <ReactApexChart options={options as any} series={series} type="area" height={350} />
-      </div>
-    </Card>
+    <ReactApexChart options={options as any} series={series} type="area" height={350} />
   )
 }
 
-export default AppSumChart
+export default AppWeekSumChart
