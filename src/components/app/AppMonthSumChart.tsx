@@ -1,7 +1,7 @@
 import ReactApexChart from 'react-apexcharts';
 import { useQuery } from 'react-query'
 import { Card } from '@mui/material';
-import { getDaysInMonth, getMonth } from 'date-fns';
+import { getDaysInMonth, getMonth, secondsToMinutes } from 'date-fns';
 
 const month = getMonth(new Date())
 
@@ -55,6 +55,17 @@ const options = {
     x: {
       format: 'dd/MM/yy'
     },
+    y: [
+      {
+        formatter: ((val: number) => `${val} l`)
+      },
+      {
+        formatter: ((val: number) => `${secondsToMinutes(val)} minutes`)
+      },
+      {
+        formatter: ((val: number) => `${val} kWh`)
+      }
+    ]
   }
 }
 
