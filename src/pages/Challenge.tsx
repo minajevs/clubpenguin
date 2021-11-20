@@ -1,10 +1,10 @@
-import { Box, Container, Button, Typography, styled, CardContent, Card, Grid, CardHeader } from "@mui/material"
+import { FC } from 'react'
+import { Box, Container, Button, Typography, CardContent, Card, Grid, CardHeader } from "@mui/material"
 import Clock from 'react-clock';
 //@ts-ignore
 import SpotifyPlayer from 'react-spotify-player';
 import { useCallback, useEffect, useRef, useState } from "react";
 import './clock.scss'
-import { prependListener } from "process";
 
 
 const size = {
@@ -29,14 +29,19 @@ const calcDate = (time: number) => {
 
 const litersPerSeconds = 0.2
 
-export const ShowerChallenge = () => {
+type ChallengeProps = {
+  uri: string
+  title: string
+  subtitle: string
+}
+
+export const Challenge: FC<ChallengeProps> = ({ uri, title, subtitle }) => {
   const [state, setState] = useState<State>({
     time: 0,
     date: new Date(1995, 11, 17, 0, 0, 0),
     liters: 0,
     temp: 0
   })
-  const [start, setStart] = useState(false)
   const startRef = useRef(false)
   const timerRef = useRef(new Date())
 
@@ -89,12 +94,12 @@ export const ShowerChallenge = () => {
         <Grid item xs={12} sx={{ p: '0 !important' }} />
         <Grid item xs={12} sm={6} md={3}>
           <Card>
-            <CardHeader title="🚿 I need a shower" subheader="Take a shower in three songs" />
+            <CardHeader title={title} subheader={subtitle} />
             <CardContent>
               <Grid container spacing={0} justifyContent='center' sx={{ textAlign: 'center' }}>
                 <Grid item>
                   <SpotifyPlayer
-                    uri="spotify:album:1pg8XypcyejiasjfBgGEgL"
+                    uri={uri}
                     size={size}
                     view={view}
                     theme={theme}
@@ -152,4 +157,4 @@ export const ShowerChallenge = () => {
   </>
 }
 
-export default ShowerChallenge
+export default Challenge
