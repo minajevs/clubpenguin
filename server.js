@@ -2,7 +2,7 @@ const { JsonDB } = require('node-json-db')
 const { Config } = require('node-json-db/dist/lib/JsonDBConfig')
 const express = require('express')
 const cors = require('cors')
-const { getMonth, getWeek, getDay, getDaysInMonth, getDate } = require('date-fns')
+const { getMonth, getWeek, getDay, getDaysInMonth, getDate, isToday, isYesterday } = require('date-fns')
 
 var db = new JsonDB(new Config("db", true, false, '/'));
 
@@ -33,6 +33,74 @@ app.get('/apartments/:index/dishwasher', function (req, res) {
   res.json(db.getData(`/houses[0]/apartments[${req.params.index}]/Dishwasher/measurements`))
 })
 
+app.get('/apartments/:index/month-temp', function(req, res) {
+  const {
+    Hydractiva_shower,
+    Kitchen_optima_faucet,
+    Optima_faucet
+  } = queryDb(req.params.index)
+
+  const date = new Date()
+  const current = getMonth(date)
+
+  let sum = 0, count = 0
+
+  ;[
+    Hydractiva_shower,
+    Kitchen_optima_faucet,
+    Optima_faucet
+  ].forEach(({ measurements }) => measurements.forEach(({ TimeStamp, Temp }) => {
+    const date = new Date(TimeStamp)
+    const month = getMonth(date)
+
+    if (month !== current) return
+
+    sum += Number(Temp)
+    count++
+  }))
+
+  const avg = sum / count
+
+  res.json({
+    Temp_Avg: avg,
+    Cold_Percentage: 100 - (avg - 20) * 2.5
+  })
+})
+
+app.get('/apartments/:index/week-temp', function(req, res) {
+  const {
+    Hydractiva_shower,
+    Kitchen_optima_faucet,
+    Optima_faucet
+  } = queryDb(req.params.index)
+
+  const date = new Date()
+  const current = getWeek(date)
+
+  let sum = 0, count = 0
+
+  ;[
+    Hydractiva_shower,
+    Kitchen_optima_faucet,
+    Optima_faucet
+  ].forEach(({ measurements }) => measurements.forEach(({ TimeStamp, Temp }) => {
+    const date = new Date(TimeStamp)
+    const week = getWeek(date)
+
+    if (week !== current) return
+
+    sum += Number(Temp)
+    count++
+  }))
+
+  const avg = sum / count
+
+  res.json({
+    Temp_Avg: avg,
+    Cold_Percentage: 100 - (avg - 20) * 2.5
+  })
+})
+
 app.get('/apartments/:index/monthly', function(req, res) {
   res.json(monthlySum(req.params.index))
 })
@@ -42,7 +110,7 @@ app.get('/apartments/:index/weekly', function(req, res) {
 })
 
 app.get('/apartments/:index/month', function(req, res) {
-    const {
+  const {
     Hydractiva_shower,
     Kitchen_optima_faucet,
     Optima_faucet,
@@ -113,6 +181,41 @@ app.get('/apartments/:index/week', function(req, res) {
   }))
 
   res.json(round(result))
+})
+
+app.get('/apartments/:index/usage', function(req, res) {
+  const {
+    Hydractiva_shower,
+    Kitchen_optima_faucet,
+    Optima_faucet,
+    Washing_machine,
+    Dishwasher
+  } = queryDb(req.params.index)
+
+  let result = {
+    today: 0,
+    yesterday: 0
+  }
+
+  ;[
+    Hydractiva_shower,
+    Kitchen_optima_faucet,
+    Optima_faucet,
+    Washing_machine,
+    Dishwasher
+  ].forEach(({ measurements }) => measurements.forEach(({ TimeStamp, Consumption }) => {
+    const date = new Date(TimeStamp.replace('2020', '2021'))
+
+    if (isToday(date)) {
+      result.today += Number(Consumption)
+    }
+
+    if (isYesterday(date)) {
+      result.yesterday += Number(Consumption)
+    }
+  }))
+
+  res.json(result)
 })
 
 const monthlySum = (index) => {

@@ -19,16 +19,23 @@ export const App = () => {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={3}>
           <Card>
-            <ToggleButtonGroup
-              color="primary"
-              value={chart}
-              exclusive
-              onChange={(_, value) => setChart(value)}
-              sx={{ m: 2 }}
-            >
-              <ToggleButton value="week">Week</ToggleButton>
-              <ToggleButton value="month">Month</ToggleButton>
-            </ToggleButtonGroup>
+            <CardHeader
+              title={<>
+                Some Stats
+                <ToggleButtonGroup
+                  size="small"
+                  color="primary"
+                  value={chart}
+                  exclusive
+                  onChange={(_, value) => setChart(value)}
+                  sx={{ ml: 'auto' }}
+                >
+                  <ToggleButton value="week">Week</ToggleButton>
+                  <ToggleButton value="month">Month</ToggleButton>
+                </ToggleButtonGroup>
+              </>}
+              titleTypographyProps={{ sx: { display: 'flex', alignItems: 'center' } }}
+            />
             <Suspense fallback={'TODO'}>
               {chart === 'week' ? (
                 <AppWeekSumChart />
