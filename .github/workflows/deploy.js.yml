@@ -1,27 +1,26 @@
 name: CI deploy
 
-on:   
+on:
   push:
     branches: [main]
   workflow_dispatch:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup node
-      uses: actions/setup-node@v2
-      with:
-        node-version: 16.x
-        cache: 'npm'
-    - name: Install and Build
-      run: |
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+          cache: "npm"
+      - name: Install and Build
+        run: |
           npm install
-          npm run build
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@4.1.6
-      with:
-        branch: gh-pages # The branch the action should deploy to.
-        folder: build # The folder the action should deploy.deploy.
+          npm run build:fe
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.6
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: build # The folder the action should deploy.deploy.
