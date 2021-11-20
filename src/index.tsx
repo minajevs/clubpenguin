@@ -4,6 +4,7 @@ import reportWebVitals from './reportWebVitals';
 import 'simplebar/src/simplebar.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import 'react-clock/dist/Clock.css'
 
 // scroll bar
 import ReactDOM from 'react-dom';

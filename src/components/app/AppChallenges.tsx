@@ -1,6 +1,7 @@
 import { Box, Card, CardHeader, styled, Typography, Button, Icon } from "@mui/material";
 import Slider, { Settings } from "react-slick"
 import { Link as RouterLink } from 'react-router-dom';
+import CardActionArea from '@mui/material/CardActionArea';
 //@ts-ignore
 import SpotifyPlayer from 'react-spotify-player';
 
@@ -57,15 +58,17 @@ export const AppChallenges = () => {
         </Slide>
         <Slide>
           <Card>
-            <CardHeader title="🚿 I need a shower" subheader="Take a shower in three songs" />
-            <Box sx={{ p: 3, pb: 3 }} dir="ltr">
-              <SpotifyPlayer
-                uri="spotify:album:4htoDDUSJXQzMbqTzFVVux"
-                size={size}
-                view={view}
-                theme={theme}
-              />
-            </Box>
+          <CardActionArea href='/showerchallenge'>
+              <CardHeader title="🚿 I need a shower" subheader="Take a shower in three songs" />
+              <Box sx={{ p: 3, pb: 3 }} dir="ltr">
+                <SpotifyPlayer
+                  uri="spotify:album:4htoDDUSJXQzMbqTzFVVux"
+                  size={size}
+                  view={view}
+                  theme={theme}
+                />
+              </Box>
+              </CardActionArea>
           </Card>
         </Slide>
       </Slider>
